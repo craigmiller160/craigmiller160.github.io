@@ -1,0 +1,7 @@
+stockmarket
+stockmarket.controller
+stockmarket.gui
+stockmarket.gui.dialog
+stockmarket.model
+stockmarket.stock
+stockmarket.util
