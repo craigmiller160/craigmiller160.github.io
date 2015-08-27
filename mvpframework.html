@@ -18,7 +18,7 @@
         <header class="inner">
           <a id="forkme_banner" href="https://github.com/craigmiller160">View All Projects on GitHub</a>
 
-          <h1 id="project_title">Craigmiller160</h1>
+          <h1 id="project_title">MVP Framework</h1>
           <h2 id="project_tagline"></h2>
 
         </header>
@@ -36,9 +36,22 @@
 
 <p>I've worked on dozens of coding projects, most of them small experiments that weren't even worth uploading to my GitHub. Highlighted here is a showcase of my best work. Personal libraries and APIs and fully-composed programs that I built, mostly just for fun. Each one demonstrates skills that I've learned from my experience.</p>
 
-<h3><a href="stockmarket.html">Stock Market</a></h3>
+<h3>Stock Market</h3>
 
-<p>A stock market simulation program that utilizes real-time market data from Yahoo! Finance. Concurrent, with industry standard design patterns, database access, multi-lingual, and more.</p>
+<p>Yahoo! Finance offers a great (and free) API for obtaining real-time information about the stock market. This program is a stock market simulation, allowing users to lookup real information about existing stocks, and then "buy" and "sell" them (again, simulated) to try and make a maximum profit. This was one of the early programs I created, and was completed months ago. However, it is currently in the midst of a re-write to implement a wide range of new techniques that I have learned since its original creation. The Version 2.0 re-write is roughly 80% complete as of 8/27/2015, and should be finished within the next several weeks.</p>
+
+<p><b><u>Key Components:</u></b></p>
+
+<ul>
+	<li>Utilizes my MVP Framework. That project is detailed in full below.</li>
+	<li>Beautiful UI utilizing the full power of <code>Swing</code>. I'm particularly proud of the uniform dialog API I created, which provides a framework for a uniform style of dialog.</li>
+	<li>Multi-threaded and thread-safe, allowing for concurrent actions to be performed as needed.</li>
+	<li>Uses <code>HTML</code> connections to pull data from Yahoo! Finance and display it in the program.</li>
+	<li>Uses the <code>JFreeChart</code> library to display a long-term history of the stock price.</li>
+	<li>Saves and loads the state of each stock portfolio in a <code>MySQL</code> database using the <code>JDBC</code>.</li>
+	<li>Utilizes industry standard design patterns, including: <code>Singleton</code>, <code>Factory</code>, <code>Data Access Object</code>, <code>Decorator</code>, <code>Monitor</code>, and MVP.</li>
+	<li>Multi-lingual support through <code>Locale</code>-based property files and <code>ResourceBundles</code>.</li>
+</ul>
 
 <h3>MVP Framework</h3>
 

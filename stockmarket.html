@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Craigmiller160.GitHub.io : ">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+	<style>
+	table, th, td{border: 1px solid black}
+	</style>
+	
+    <title>CraigMiller160</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/craigmiller160/StockMarket-2.0">Return to Main Page</a>
+
+          <h1 id="project_title">Stock Market</h1>
+          <h2 id="project_tagline"></h2>
+
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h2>
+<a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true"><span class="octicon octicon-link"></span></a>Stock Market Simulation Program</h2>
+
+<a id="forkme_banner" href="https://github.com/craigmiller160/StockMarket-2.0">View Full Source on GitHub</a>
+
+<p>One of the greatest things I've built to date. This program was inspired by Yahoo! Finance, which offers a great (and free) API for obtaining real-time information about the stock market. The program is a stock market simulation, allowing users to lookup real information about existing stocks, and then "buy" and "sell" them (again, simulated) to try and make a maximum profit. This was one of the early programs I created, and was completed months ago. However, it is currently in the midst of a re-write to implement a wide range of new techniques that I have learned since its original creation. The Version 2.0 re-write is roughly 80% complete as of 8/27/2015, and should be finished within the next several weeks.</p>
+
+<h4>Full JavaDoc: <a href="./stockmarket/index.html">Stock Market JavaDoc</a></h4>
+
+<h2>Key Components</h2>
+
+<h3>Safely Concurrent</h3>
+
+<p>User actions are quickly offloaded from the <code>EventDispatchThread</code> to background threads for processing, with all gui changes being pushed back onto the <code>EDT</code> before execution. All property models and shared objects are properly synchronized to protect their state, with synchronized blocks covering as little as possible to maximize performance.</p>
+
+<h4>Examples in Code:</h4>
+<table style="width:100%">
+	<tr>
+		<th id="class">Class/Interface</th>
+		<th id="description">Description</th>
+		<th id="links">Links</th>
+	</tr>
+	<tr>
+		<td headers="class">GUIStateModel</td>
+		<td headers="description">An example of one of my JavaBean bound property models, and its use of propper synchronization to allow multiple threads to change its state.</td>
+		<td headers="links"><a href="https://github.com/craigmiller160/StockMarket-2.0/blob/master/src/stockmarket/model/GUIStateModel.java">Source</a><br><a href="./stockmarket/stockmarket/model/GUIStateModel.html">JavaDoc</a></td>
+	</tr>
+	<tr>
+		<td headers="class">DefaultStock</td>
+		<td headers="description">My core stock object, which uses both propper synchronization and a practice of only returning either immutable objects or copies of fields to guard its state.</td>
+		<td headers="links"><a href="https://github.com/craigmiller160/StockMarket-2.0/blob/master/src/stockmarket/stock/DefaultStock.java">Source</a><br><a href="./stockmarket/stockmarket/stock/DefaultStock.html">JavaDoc</a></td>
+	</tr>
+	<tr>
+		<td headers="class">AbstractConcurrentListenerController</td>
+		<td headers="description">A class from my MVP Framework project, the controller of this project extends this class. It handles the process of switching between the EDT and background threads.</td>
+		<td headers="links"><a href="https://github.com/craigmiller160/MVP-Framework/blob/master/src/mvp/concurrent/AbstractConcurrentListenerController.java">Source</a><br><a href="./mvp-framework/mvp/concurrent/AbstractConcurrentListenerController.html">JavaDoc</a></td>
+	</tr>
+</table>
+
+<h3>Uses Standard Design Patterns</h3>
+
+<p>This program is coded using a wide range of industry standard design patterns. This includes: code>Singleton</code>, <code>Factory</code>, <code>Data Access Object</code>, <code>Observer</code>, and <code>Model-View-Presenter</code>.</p>
+
+<h4>Examples in Code:</h4>
+<table style="width:100%">
+	<tr>
+		<th id="class">Class/Interface</th>
+		<th id="description">Description</th>
+		<th id="links">Links</th>
+	</tr>
+	<tr>
+		<td headers="class">Language</td>
+		<td headers="description">Uses a thread-safe Singleton via the Singleton-Holder pattern for instantiation.</td>
+		<td headers="links"><a href="https://github.com/craigmiller160/StockMarket-2.0/blob/master/src/stockmarket/util/Language.java">Source</a><br><a href="./stockmarket/stockmarket/util/Language.html">JavaDoc</a></td>
+	</tr>
+	<tr>
+		<td headers="class">DialogFactory</td>
+		<td headers="description">Uses the Factory pattern to create GUI dialogs.</td>
+		<td headers="links"><a href="https://github.com/craigmiller160/StockMarket-2.0/blob/master/src/stockmarket/gui/dialog/DialogFactory.java">Source</a><br><a href="./stockmarket/stockmarket/gui/dialog/DialogFactory.html">JavaDoc</a></td>
+	</tr>
+	<tr>
+		<td headers="class">SQLPortfolioDAO</td>
+		<td headers="description">Uses the Data Access Object pattern to provide simple methods that perform complex database operations.</td>
+		<td headers="links"><a href="https://github.com/craigmiller160/StockMarket-2.0/blob/master/src/stockmarket/controller/SQLPortfolioDAO.java">Source</a><br><a href="./stockmarket/stockmarket/controller/SQLPortfolioDAO.html">JavaDoc</a></td>
+	</tr>
+	<tr>
+		<td headers="class">GUIStateModel</td>
+		<td headers="description">Uses the Observer pattern (a JavaBean bound property change variant). Listener classes observe this model, and are notified through fired events when a change occurs.</td>
+		<td headers="links"><a href="https://github.com/craigmiller160/StockMarket-2.0/blob/master/src/stockmarket/model/GUIStateModel.java">Source</a><br><a href="./stockmarket/stockmarket/model/GUIStateModel.html">JavaDoc</a></td>
+	</tr>
+	<tr>
+		<td headers="class">MVP Framework</td>
+		<td headers="description">The Model-View-Presenter pattern is implemented via my MVP Framework, a separate project hosted here.</td>
+		<td headers="links"><a href="mvpframework.html">MVP Framework Project</a></td>
+	</tr>
+</table>
+
+<h3>Stores Data in a MySQL Database</h3>
+
+<p>Using the <code>JDBC</code>, all data for this program is stored in a <code>MySQL</code> database. Database property information is loaded from a separate file at runtime, and periodic connections are acquired to load, save, and modify information.</p>
+
+<h4>Examples in Code:</h4>
+<table style="width:100%">
+	<tr>
+		<th id="class">Class/Interface</th>
+		<th id="description">Description</th>
+		<th id="links">Links</th>
+	</tr>
+	<tr>
+		<td headers="class">SQLPortfolioDAO</td>
+		<td headers="description">The class that handles the database connection.</td>
+		<td headers="links"><a href="https://github.com/craigmiller160/StockMarket-2.0/blob/master/src/stockmarket/controller/SQLPortfolioDAO.java">Source</a><br><a href="./stockmarket/stockmarket/controller/SQLPortfolioDAO.html">JavaDoc</a></td>
+	</tr>
+</table>
+
+<h3>Beautiful UI With Compartmentalized Design</h3>
+
+<p>Built using <code>Swing</code> and the Nimbus LookAndFeel, the GUI classes use a wide range of components and icons to achieve an elegant appearance. Structurally, the code is compartmentalized and split up into multiple classes. Higher level components are written with blank, placeholder components to stand in for components they get from other classes, with the full GUI only being assembled at runtime. This allows for UI classes to be changed or replaced with easy, as none of them directly reference the others.</p>
+
+<h4>Examples in Code:</h4>
+<table style="width:100%">
+	<tr>
+		<th id="class">Class/Interface</th>
+		<th id="description">Description</th>
+		<th id="links">Links</th>
+	</tr>
+	<tr>
+		<td headers="class">Frame</td>
+		<td headers="description">The top level container, the window, of the program, with placeholder components for all the other elements to be added at runtime.</td>
+		<td headers="links"><a href="https://github.com/craigmiller160/StockMarket-2.0/blob/master/src/stockmarket/gui/Frame.java">Source</a><br><a href="./stockmarket/stockmarket/gui/Frame.html">JavaDoc</a></td>
+	</tr>
+</table>
+
+<h3>Uniform Dialog API</h3>
+
+<p>In many cases I needed a more complex dialog than what was offered by <code>JOptionPane</code>. To avoid inconsitency in appearance, a dialog API was designed to ensure that subclasses could produce dialogs as simple or complex as needed by implementing a handful of methods. Most importantly, no matter how much or how little the dialog contained, the basic visual style would always be consistent.</p>
+
+<h4>Examples in Code:</h4>
+<table style="width:100%">
+	<tr>
+		<th id="class">Class/Interface</th>
+		<th id="description">Description</th>
+		<th id="links">Links</th>
+	</tr>
+	<tr>
+		<td headers="class">AbstractDefaultDialog</td>
+		<td headers="description">The class that defines the API for all dialogs used in this program.</td>
+		<td headers="links"><a href="https://github.com/craigmiller160/StockMarket-2.0/blob/master/src/stockmarket/gui/dialog/AbstractDefaultDialog.java">Source</a><br><a href="./stockmarket/stockmarket/gui/dialog/AbstractDefaultDialog.html">JavaDoc</a></td>
+	</tr>
+</table>
+
+<h3>Retrieves Data From the Web</h3>
+
+<p>Establishes a connection with Yahoo! Finance's servers to retrieve the data necessary to run the program. Information is downloaded as a .csv, parsed, and returned to the caller so it can be properly stored.</p>
+
+<h4>Examples in Code:</h4>
+<table style="width:100%">
+	<tr>
+		<th id="class">Class/Interface</th>
+		<th id="description">Description</th>
+		<th id="links">Links</th>
+	</tr>
+	<tr>
+		<td headers="class">YahooStockDownloader</td>
+		<td headers="description">Handles the connection to Yahoo! Finance and downloads the requested stock data.</td>
+		<td headers="links"><a href="https://github.com/craigmiller160/StockMarket-2.0/blob/master/src/stockmarket/stock/YahooStockDownloader.java">Source</a><br><a href="./stockmarket/stockmarket/stock/YahooStockDownloader.html">JavaDoc</a></td>
+	</tr>
+</table>
+
+<h3>Multi-Lingual Support</h3>
+
+<p>While additional languages have yet to be included, this program 100% supports multi-lingual implementation. No text is hard-coded into the GUI, and instead is stored in properties files and accessed using the <code>ResourceBundle</code> class. A special shared Language module wraps around the bundle so that not only can the single bundle be accessed by multiple classes, but the language setting can be changed during runtime and the GUI re-loaded with a new text.</p>
+
+<h4>Examples in Code:</h4>
+<table style="width:100%">
+	<tr>
+		<th id="class">Class/Interface</th>
+		<th id="description">Description</th>
+		<th id="links">Links</th>
+	</tr>
+	<tr>
+		<td headers="class">Language</td>
+		<td headers="description">Stores the current language setting and retrieves <code>Strings</code> from the <code>ResourceBundle</code> for the GUI.</td>
+		<td headers="links"><a href="https://github.com/craigmiller160/StockMarket-2.0/blob/master/src/stockmarket/util/Language.java">Source</a><br><a href="./stockmarket/stockmarket/util/Language.html">JavaDoc</a></td>
+	</tr>
+</table>
+
+<h3>Utilizes the JFreeChart Library</h3>
+
+<p>For displaying the history of a given stock, this program uses the <code>JFreeChart</code> library. It provides an excellent chart that can be set to varying amounts of time to display the history of the stock.</p>
+
+<h4>Examples in Code:</h4>
+<table style="width:100%">
+	<tr>
+		<th id="class">Class/Interface</th>
+		<th id="description">Description</th>
+		<th id="links">Links</th>
+	</tr>
+	<tr>
+		<td headers="class">StockHistoryPanel</td>
+		<td headers="description">Displays the stock history chart in the GUI.</td>
+		<td headers="links"><a href="https://github.com/craigmiller160/StockMarket-2.0/blob/master/src/stockmarket/gui/StockHistoryPanel.java">Source</a><br><a href="./stockmarket/stockmarket/gui/StockHistoryPanel.html">JavaDoc</a></td>
+	</tr>
+</table>
+
+<h3>Utilizes my MVP Framework</h3>
+
+<p>This program fully implements my Model-View-Presenter Framework, which uses dependency inversion to keep the implementation of the various elements of the program separate from one another, while still allowing them to communicate. The framework also handles a large part of the concurrency for this program. This is one of my other projects detailed on this site, so I'll just provide a link here.</p>
+
+<h4>Examples in Code:</h4>
+<table style="width:100%">
+	<tr>
+		<th id="class">Class/Interface</th>
+		<th id="description">Description</th>
+		<th id="links">Links</th>
+	</tr>
+	<tr>
+		<td headers="class">(See MVP Framework Project)</td>
+		<td headers="description">(See MVP Framework Project)</td>
+		<td headers="links"><a href="mvpframework.html">MVP Framework Project</a></td>
+	</tr>
+</table>
+
+
+<ul>
+	<li>Multi-lingual support through <code>Locale</code>-based property files and <code>ResourceBundles</code>.</li>
+	<li>Logging to CSV</li>
+</ul>
+
+<h3>Contact</h3>
+
+<p>Want to contact me? Feel free to email me at <u>craigmiller160@gmail.com</u>.</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
