@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Craigmiller160.GitHub.io : ">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+	<style>
+	table, th, td{border: 1px solid black}
+	</style>
+	
+    <title>CraigMiller160-Ballot</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="index.html">Return to Main Page</a>
+
+          <h1 id="project_title">Ballot</h1>
+          <h2 id="project_tagline"></h2>
+
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h2>
+<a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true"><span class="octicon octicon-link"></span></a>Ballot Creator Program</h2>
+
+<a id="forkme_banner" href="https://github.com/craigmiller160/BallotProgram">View Full Source on GitHub</a>
+
+<p>My very first full Java application. A UI, action logic, IO, and everything in between. I built this after just two months of studying the language, and it utilizes a wide range of Java features, which is a testament to my ability to rapidly learn new concepts. The program's purpose is to generate a digital ballot, based on user input through a ballot configuration UI. It's a bit on the crude side, and not well documented either, but it's a good demonstration of my evolution as a programmer.</p>
+
+<h2>Key Components</h2>
+
+<h3>Rich and Diverse GUI</h3>
+
+<p>This was my first real GUI program, so I put effort into using a wide range of <code>Swing</code> components and layouts.</p>
+
+<h4>Examples in Code:</h4>
+<table style="width:100%">
+	<tr>
+		<th id="class">Class/Interface</th>
+		<th id="description">Description</th>
+		<th id="links">Links</th>
+	</tr>
+	<tr>
+		<td headers="class">BCMainEditorPanel</td>
+		<td headers="description">The main panel in the frame, containing a list of items already created for the ballot and buttons to open the various editors.</td>
+		<td headers="links"><a href="https://github.com/craigmiller160/BallotProgram/blob/master/src/ballotcreator/BCMainEditorPanel.java">Source</a>
+	</tr>
+	<tr>
+		<td headers="class">BCInnerOfficePanel</td>
+		<td headers="description">One of the many editor panels, this one to create/edit elected offices for the ballot.</td>
+		<td headers="links"><a href="https://github.com/craigmiller160/BallotProgram/blob/master/src/ballotcreator/BCInnerOfficePanel.java">Source</a>
+	</tr>
+</table>
+
+<h3>Customized List for Data Storage</h3>
+
+<p>A crude but effective class that modifies the traditional <code>List</code> from the Java SDK. It provides special add, set, and get methods for the various ballot components. It also integrates IO methods for saving the ballot's state.</p>
+
+<h4>Examples in Code:</h4>
+<table style="width:100%">
+	<tr>
+		<th id="class">Class/Interface</th>
+		<th id="description">Description</th>
+		<th id="links">Links</th>
+	</tr>
+	<tr>
+		<td headers="class">BallotDataList</td>
+		<td headers="description">A crude, modified <code>List</code> class with special methods that are tailored for the specific elements of the ballot. Also includes IO methods for saving state to file.</td>
+		<td headers="links"><a href="https://github.com/craigmiller160/BallotProgram/blob/master/src/data/BallotDataList.java">Source</a>
+	</tr>
+</table>
+
+<h3>Construct New GUI Based on User Input</h3>
+
+<p>The primary function of this program is to provide an interface for configuring an election ballot, and then generating the ballot based on that configuration. The ballot displays in a separate window, and assembles itself based on the options set by the creator part of the program.</p>
+
+<h4>Examples in Code:</h4>
+<table style="width:100%">
+	<tr>
+		<th id="class">Class/Interface</th>
+		<th id="description">Description</th>
+		<th id="links">Links</th>
+	</tr>
+	<tr>
+		<td headers="class">Ballot</td>
+		<td headers="description">The base class for the generated ballot, which parses the configuration data to determine how to be assembled.</td>
+		<td headers="links"><a href="https://github.com/craigmiller160/BallotProgram/blob/master/src/ballot/Ballot.java">Source</a>
+	</tr>
+</table>
+
+<h3>Contact</h3>
+
+<p>Want to contact me? Feel free to email me at <u>craigmiller160@gmail.com</u>.</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
