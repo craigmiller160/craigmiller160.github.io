@@ -40,18 +40,9 @@
 
 <p>A stock market simulation program that utilizes real-time market data from Yahoo! Finance. Concurrent, with industry standard design patterns, database access, multi-lingual, and more.</p>
 
-<h3>MVP Framework</h3>
+<h3><a href="mvpframework.html">MVP Framework</a></h3>
 
-<p>When I began studying industry standard Java design patterns, Model-View-Presenter was one that I truly fell in love with. Nevertheless, I felt the basic design that's shown all over the web didn't go far enough in separating its components and reducing the coupling between them, especially with the views and controllers. This simple framework has the traditional MVP design at its core, and then builds on it using Java's event listener system, advanced reflection techniques, and safe concurrency to provide a far more advanced framework for implementing the MVP pattern, which is capable of being used by any program.</p>
-
-<p><b><u>Key Components:</u></b></p>
-
-<ul>
-	<li>At its core, always adheres to the Model-View-Presenter design pattern, with the controller handling all communication between the models and views.</li>
-	<li>Utilizes the <code>ActionListener</code> interface to more fully separate the controller from the view, allowing for the controller to receive all events from view classes without needing any specific knowledge of their implementation.</li>
-	<li>Provides implementations for view GUI classes and for dialogs as well.</li>
-	<li>Supports concurrency through the <code>AbstractConcurrentListenerController</code> class, which handles the process of moving tasks from the <code>EventDispatchThread</code> to background threads, and then back to the <code>EDT</code> afterwards. The implementing class need only concern itself with writing code for those background processes.</li>
-</ul>
+<p>A fully constructed framework that programs can be built around using the Model View Presenter pattern. Near-total separation of concerns, advanced reflection, and safe concurrency are some of the key features of this project.</p>
 
 <h3>Money and Currency Conversion</h3>
 

@@ -8,7 +8,11 @@
 
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
-    <title>CraigMiller160</title>
+	<style>
+	table, th, td{border: 1px solid black}
+	</style>
+	
+    <title>CraigMiller160-MVP Framework</title>
   </head>
 
   <body>
@@ -16,7 +20,7 @@
     <!-- HEADER -->
     <div id="header_wrap" class="outer">
         <header class="inner">
-          <a id="forkme_banner" href="https://github.com/craigmiller160">View All Projects on GitHub</a>
+          <a id="forkme_banner" href="index.html">Return to Main Page</a>
 
           <h1 id="project_title">MVP Framework</h1>
           <h2 id="project_tagline"></h2>
@@ -28,81 +32,74 @@
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
         <h2>
-<a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true"><span class="octicon octicon-link"></span></a>Welcome to CraigMiller160's Page</h2>
+<a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true"><span class="octicon octicon-link"></span></a>Model View Presenter Framework</h2>
 
-<p>I am a programming enthusiast with nearly a year of hands-on coding experience, primarily in Java and SQL. I find personal enjoyment in working on challenging projects simply to see what I can ultimately accomplish. In addition to a few small courses, I've learned most of what I know through self-teaching, reading tutorials and lots of source code. Ultimately, I've learned the most by writing code myself. Planning ambitious, complex projects and then slowly working out the issues and obstacles along the way,  I've gained a deep understanding of how the languages I work with operate. I've created this page to show off the work that I've done, to demonstrate the skills that I've gained from it. All the projects listed here were designed, planned, coded, and tested by me personally.</p>
-
-<h2>My Projects</h2>
-
-<p>I've worked on dozens of coding projects, most of them small experiments that weren't even worth uploading to my GitHub. Highlighted here is a showcase of my best work. Personal libraries and APIs and fully-composed programs that I built, mostly just for fun. Each one demonstrates skills that I've learned from my experience.</p>
-
-<h3>Stock Market</h3>
-
-<p>Yahoo! Finance offers a great (and free) API for obtaining real-time information about the stock market. This program is a stock market simulation, allowing users to lookup real information about existing stocks, and then "buy" and "sell" them (again, simulated) to try and make a maximum profit. This was one of the early programs I created, and was completed months ago. However, it is currently in the midst of a re-write to implement a wide range of new techniques that I have learned since its original creation. The Version 2.0 re-write is roughly 80% complete as of 8/27/2015, and should be finished within the next several weeks.</p>
-
-<p><b><u>Key Components:</u></b></p>
-
-<ul>
-	<li>Utilizes my MVP Framework. That project is detailed in full below.</li>
-	<li>Beautiful UI utilizing the full power of <code>Swing</code>. I'm particularly proud of the uniform dialog API I created, which provides a framework for a uniform style of dialog.</li>
-	<li>Multi-threaded and thread-safe, allowing for concurrent actions to be performed as needed.</li>
-	<li>Uses <code>HTML</code> connections to pull data from Yahoo! Finance and display it in the program.</li>
-	<li>Uses the <code>JFreeChart</code> library to display a long-term history of the stock price.</li>
-	<li>Saves and loads the state of each stock portfolio in a <code>MySQL</code> database using the <code>JDBC</code>.</li>
-	<li>Utilizes industry standard design patterns, including: <code>Singleton</code>, <code>Factory</code>, <code>Data Access Object</code>, <code>Decorator</code>, <code>Monitor</code>, and MVP.</li>
-	<li>Multi-lingual support through <code>Locale</code>-based property files and <code>ResourceBundles</code>.</li>
-</ul>
-
-<h3>MVP Framework</h3>
+<a id="forkme_banner" href="https://github.com/craigmiller160/MVP-Framework">View Full Source on GitHub</a>
 
 <p>When I began studying industry standard Java design patterns, Model-View-Presenter was one that I truly fell in love with. Nevertheless, I felt the basic design that's shown all over the web didn't go far enough in separating its components and reducing the coupling between them, especially with the views and controllers. This simple framework has the traditional MVP design at its core, and then builds on it using Java's event listener system, advanced reflection techniques, and safe concurrency to provide a far more advanced framework for implementing the MVP pattern, which is capable of being used by any program.</p>
 
-<p><b><u>Key Components:</u></b></p>
+<h4>Full JavaDoc: <a href="./mvp-framework/index.html">MVP Framework JavaDoc</a></h4>
 
-<ul>
-	<li>At its core, always adheres to the Model-View-Presenter design pattern, with the controller handling all communication between the models and views.</li>
-	<li>Utilizes the <code>ActionListener</code> interface to more fully separate the controller from the view, allowing for the controller to receive all events from view classes without needing any specific knowledge of their implementation.</li>
-	<li>Provides implementations for view GUI classes and for dialogs as well.</li>
-	<li>Supports concurrency through the <code>AbstractConcurrentListenerController</code> class, which handles the process of moving tasks from the <code>EventDispatchThread</code> to background threads, and then back to the <code>EDT</code> afterwards. The implementing class need only concern itself with writing code for those background processes.</li>
-</ul>
+<h2>Key Components</h2>
 
-<h3>Money and Currency Conversion</h3>
+<h3>Advanced Reflection</h3>
 
-<p>What started as my first experiment with accessing a web based service and retrieving information transformed into a pretty awesome little library. It ties <code>BigDecimal</code> values to currency types, which enables a number of special operations. Essentially it allows amounts of money of various currency types to be compared, combined, and otherwise operated on by a program.</p>
+<p>Reflection is commonly seen in many MVP tutorials, but usually only in a very limited sense. The controller in this framework has two methods, <code>setModelProperty(String,Object...)</code> and <code>getModelProperty(String,Object...)</code> that are incredibly powerful. Their main strength comes from being able to handle any number of parameters, regardless of their types. Even zero-parameter and variable argument methods are supported. Any public setter or getter in any model regsitered with this controller can be successfully invoked.</p>
 
-<p><b><u>Key Components:</u></b></p>
+<h4>Examples in Code:</h4>
+<table style="width:100%">
+	<tr>
+		<th id="class">Class/Interface</th>
+		<th id="description">Description</th>
+		<th id="links">Links</th>
+	</tr>
+	<tr>
+		<td headers="class">AbstractController</td>
+		<td headers="description">The core controller class, with the reflective methods described.</td>
+		<td headers="links"><a href="https://github.com/craigmiller160/MVP-Framework/tree/master/src/mvp/core/AbstractController.java">Source</a><br><a href="./mvp-framework/mvp/core/AbstractController.html">JavaDoc</a></td>
+	</tr>
+</table>
 
-<ul>
-	<li><code>Money</code> objects must always have a <code>BigDecimal</code> value and a <code>CurrentyType</code>. Any change to the type results in a conversion operation on the value.</li>
-	<li>Objects of different currency types can be used together in mathematical operations (add/subtract/multiply/divide), which will automatically perform the necessary conversions to produce the correct result.</li>
-	<li>Amounts of money with different currency types can be compared to one another, using the <code>Comparable</code> interface and propper conversions.</li>
-	<li>Currency conversion rates are downloaded when needed from Yahoo! Finance.</li>
-	<li>Currently supports 24 different currency types, but could easily support all currency types, so long as the <code>enum</code> constant values conform to the <code>ISO4217</code> standard.</li>
-</ul>
+<h3>Listeners for Near-Total Separation of Views and Controllers</h3>
 
-<h3>TS-Inverted Apps</h3>
+<p>The core MVP package would still require a view to have a reference to the controller, so it could invoke the appropriate method for the action that needs to be performed. The listener package provides enhanced classes for the view and controller use the <code>ActionListener</code> to avoid that dependency. All <code>ActionEvents</code> from the view are simply passed to the controller, which is assigned as a listener to the view. An abstract method, <code>getValueForAction(String)</code>, is provided in the view to allow the controller to get any values it needs to perform the action (eg, input in a text field).</p>
 
-<p>My oldest project, doesn't use Java or SQL but "Edify", a special scripting language used for Android installer scripts. This script is designed to install a series of themed versions of popular Android apps, and was developed in cooperation with the theme developers. It utilizes the Android <code>Aroma Installer</code> (from developer Amarulz) to provide the user with a simple interface to select which apps to install, defining a series of properties files along the way. It then executes the installation process based on the items the properties files indicate were selected. Unfortuantely, I had to abandon this project when my work at the time became too busy for me to continue it.</p>
+<h4>Examples in Code:</h4>
+<table style="width:100%">
+	<tr>
+		<th id="class">Class/Interface</th>
+		<th id="description">Description</th>
+		<th id="links">Links</th>
+	</tr>
+	<tr>
+		<td headers="class">ListenerView</td>
+		<td headers="description">View interface that implements <code>ActionListener</code> to facilitate the passing of events to listening controllers via a class-wide <code>actionPerformed(ActionEvent)</code> method.</td>
+		<td headers="links"><a href="https://github.com/craigmiller160/MVP-Framework/tree/master/src/mvp/listener/ListenerView.java">Source</a><br><a href="./mvp-framework/mvp/listener/ListenerView.html">JavaDoc</a></td>
+	</tr>
+	<tr>
+		<td headers="class">AbstractListenerController</td>
+		<td headers="description">Controller that implements <code>ActionListener</code> and adds itself to any <code>ListenerView</code> classes that are registered with it. All events ultimately arrive here and are performed by the <code>actionPerformed(ActionEvent)</code> method in subclasses.</td>
+		<td headers="links"><a href="https://github.com/craigmiller160/MVP-Framework/tree/master/src/mvp/listener/AbstractListenerController.java">Source</a><br><a href="./mvp-framework/mvp/listener/AbstractListenerController.html">JavaDoc</a></td>
+	</tr>
+</table>
 
-<p><b><u>Key Components:</u></b></p>
+<h3>Concurrent Execution Management</h3>
 
-<ul>
-	<li>Option to do a full <code>GApps</code> installation along with installing the specified apps.</li>
-	<li>Full slate of <code>TeamBlackout</code> themed apps.</li>
-	<li><code>Aroma Installer</code> gives the user the ability to pick and choose which apps to install.</li>
-</ul>
+<p>The final piece is the concurrent package, with its concurrent implementation of the controller class. All <code>ActionEvents</code> received from the view are prepped and passed off to background threads in a thread pool, and a single abstract method is provided for subclasses to implement to process the event. To maintain propper <code>Swing</code> thread safety, <code>PropertyChangeEvents</code> are wrapped in <code>SwingUtilities.invokeLater(Runnable)</code> before being returned to the view, thus ensuring that the GUI is always updated on the <code>EventDispatchThread</code>.</p>
 
-<h3>Ballot Program</h3>
-
-<p>My very first full Java application. A UI, action logic, IO, and everything in between. It's a bit on the crude side, and poorly documented as well, but I felt like it was a good thing to put here to demonstrate just how far I've come. Moreover, I built this after just two months of studying the language, and it utilizes a wide range of Java features, which is a testament to my ability to rapidly learn new concepts. The program's purpose is to generate a digital ballot, based on user input through a ballot configuration UI.</p>
-
-<p><b><u>Key Components:</u></b></p>
-
-<ul>
-	<li>Fully assembled GUI in Swing</li>
-	<li>IO processes to save/load the program's state to a file.</li>
-	<li>Generates a fully assembled secondary window UI based on configuration chosen by the user.</li>
-</ul>
+<h4>Examples in Code:</h4>
+<table style="width:100%">
+	<tr>
+		<th id="class">Class/Interface</th>
+		<th id="description">Description</th>
+		<th id="links">Links</th>
+	</tr>
+	<tr>
+		<td headers="class">AbstractConcurrentListenerController</td>
+		<td headers="description">Handles the process of passing events off to background threads and returning property changes to the views safetly on the EDT.</td>
+		<td headers="links"><a href="https://github.com/craigmiller160/MVP-Framework/tree/master/src/mvp/concurrent/AbstractConcurrentListenerController.java">Source</a><br><a href="./mvp-framework/mvp/concurrent/AbstractConcurrentListenerController.html">JavaDoc</a></td>
+	</tr>
+</table>
 
 <h3>Contact</h3>
 
