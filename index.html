@@ -36,27 +36,19 @@
 
 <p>I've worked on dozens of coding projects, most of them small experiments that weren't even worth uploading to my GitHub. Highlighted here is a showcase of my best work. Personal libraries and APIs and fully-composed programs that I built, mostly just for fun. Each one demonstrates skills that I've learned from my experience.</p>
 
-<h3><a href="stockmarket.html">Stock Market</a></h3>
+<h3><a href="stockmarket.html">Stock Market (w/ JavaDoc)</a></h3>
 
 <p>A stock market simulation program that utilizes real-time market data from Yahoo! Finance. Concurrent, with industry standard design patterns, database access, multi-lingual, and more.</p>
 
-<h3><a href="mvpframework.html">MVP Framework</a></h3>
+<h3><a href="mvpframework.html">MVP Framework (w/ JavaDoc)</a></h3>
 
 <p>A fully constructed framework that programs can be built around using the Model View Presenter pattern. Near-total separation of concerns, advanced reflection, and safe concurrency are some of the key features of this project.</p>
 
-<h3>Money and Currency Conversion</h3>
+<h3><a href="currency.html">Money and Currency Conversion (w/ JavaDoc)</a></h3>
 
-<p>What started as my first experiment with accessing a web based service and retrieving information transformed into a pretty awesome little library. It ties <code>BigDecimal</code> values to currency types, which enables a number of special operations. Essentially it allows amounts of money of various currency types to be compared, combined, and otherwise operated on by a program.</p>
+<p>A simple library for utilizing amounts of money of different currencies. Amounts of money can have an operation performed on them, even if they have different currency types. Automatic conversions with rates from Yahoo! Finance preserve the consistency of the values.</p>
 
-<p><b><u>Key Components:</u></b></p>
 
-<ul>
-	<li><code>Money</code> objects must always have a <code>BigDecimal</code> value and a <code>CurrentyType</code>. Any change to the type results in a conversion operation on the value.</li>
-	<li>Objects of different currency types can be used together in mathematical operations (add/subtract/multiply/divide), which will automatically perform the necessary conversions to produce the correct result.</li>
-	<li>Amounts of money with different currency types can be compared to one another, using the <code>Comparable</code> interface and propper conversions.</li>
-	<li>Currency conversion rates are downloaded when needed from Yahoo! Finance.</li>
-	<li>Currently supports 24 different currency types, but could easily support all currency types, so long as the <code>enum</code> constant values conform to the <code>ISO4217</code> standard.</li>
-</ul>
 
 <h3>TS-Inverted Apps</h3>
 
