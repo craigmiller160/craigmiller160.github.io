@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Craigmiller160.GitHub.io : ">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+	<style>
+	table, th, td{border: 1px solid black}
+	</style>
+	
+    <title>CraigMiller160-TS Inverted Apps</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="index.html">Return to Main Page</a>
+
+          <h1 id="project_title">TS Inverted Apps</h1>
+          <h2 id="project_tagline"></h2>
+
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h2>
+<a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true"><span class="octicon octicon-link"></span></a>TS Inverted Apps</h2>
+
+<a id="forkme_banner" href="https://github.com/craigmiller160/TS-Inverted-Apps">View Full Source on GitHub</a>
+
+<p>My oldest project, doesn't use Java or SQL but "Edify", a special scripting language used for Android installer scripts. This script is designed to install a series of themed versions of popular Android apps, and was developed in cooperation with the theme developers. It utilizes the Android <code>Aroma Installer</code> (from developer Amarulz) to provide the user with a simple interface to select which apps to install, defining a series of properties files along the way. It then executes the installation process based on the items the properties files indicate were selected. Unfortuantely, I had to abandon this project when my work at the time became too busy for me to continue it.</p>
+
+<h2>Key Components</h2>
+
+<h3>Aroma Installer</h3>
+
+<p>This script uses the Aroma Installer, an Android tool that provides a UI in recovery mode for selecting which items to install. The selections are recorded in properties files which are used when executing the installation.</p>
+
+<h4>Examples in Code:</h4>
+<table style="width:100%">
+	<tr>
+		<th id="class">File Name</th>
+		<th id="description">Description</th>
+		<th id="links">Links</th>
+	</tr>
+	<tr>
+		<td headers="class">aroma-config</td>
+		<td headers="description">The script file for the Aroma UI.</td>
+		<td headers="links"><a href="https://github.com/craigmiller160/TS-Inverted-Apps/blob/master/META-INF/com/google/android/aroma-config">Source</a>
+	</tr>
+</table>
+
+<h3>Installation Script</h3>
+
+<p>Once the items to install have ben selected, the installation process needs to happen. Partitions are mounted, files are written into them, and the appropriate permissions are set.</p>
+
+<h4>Examples in Code:</h4>
+<table style="width:100%">
+	<tr>
+		<th id="class">File Name</th>
+		<th id="description">Description</th>
+		<th id="links">Links</th>
+	</tr>
+	<tr>
+		<td headers="class">updater-script</td>
+		<td headers="description">The script file that installs the apps to the Android filesystem.</td>
+		<td headers="links"><a href="https://github.com/craigmiller160/TS-Inverted-Apps/blob/master/META-INF/com/google/android/updater-script">Source</a>
+	</tr>
+</table>
+
+<h3>Contact</h3>
+
+<p>Want to contact me? Feel free to email me at <u>craigmiller160@gmail.com</u>.</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
