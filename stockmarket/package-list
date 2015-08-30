@@ -1,7 +1,7 @@
-stockmarket
-stockmarket.controller
-stockmarket.gui
-stockmarket.gui.dialog
-stockmarket.model
-stockmarket.stock
-stockmarket.util
+io.craigmiller160.stockmarket
+io.craigmiller160.stockmarket.controller
+io.craigmiller160.stockmarket.gui
+io.craigmiller160.stockmarket.gui.dialog
+io.craigmiller160.stockmarket.model
+io.craigmiller160.stockmarket.stock
+io.craigmiller160.stockmarket.util
