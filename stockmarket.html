@@ -36,7 +36,7 @@
 
 <a id="forkme_banner" href="https://github.com/craigmiller160/StockMarket-2.0">View Full Source on GitHub</a>
 
-<p>One of the greatest things I've built to date. This program was inspired by Yahoo! Finance, which offers a great (and free) API for obtaining real-time information about the stock market. The program is a stock market simulation, allowing users to lookup real information about existing stocks, and then "buy" and "sell" them (again, simulated) to try and make a maximum profit. This was one of the early programs I created, and was completed months ago. However, it is currently in the midst of a re-write to implement a wide range of new techniques that I have learned since its original creation. The Version 2.0 re-write is roughly 80% complete as of 8/27/2015, and should be finished within the next several weeks.</p>
+<p>One of the greatest full programs I've built to date. This program was inspired by Yahoo! Finance, which offers a great (and free) API for obtaining real-time information about the stock market. The program is a stock market simulation, allowing users to lookup real information about existing stocks, and then "buy" and "sell" them (again, simulated) to try and make a maximum profit. This program pushed me to master thread-safe class design, proper programming structure, and database access, just to name a few. This program has been the backbone of my growth as a programmer, as I initially completed a much simpler version of this months ago, yet kept coming back and using it as the basis for growing my skills and improving as a developer. As Version 2.0, a complete re-write from the ground up, approaches completion (as of 8/30/2015 it's a few weeks away from completion), it has become a showcase of the many skills I have gained from my experience.</p>
 
 <h4>Full JavaDoc: <a href="./stockmarket/index.html">Stock Market JavaDoc</a></h4>
 
@@ -44,7 +44,7 @@
 
 <h3>Safely Concurrent</h3>
 
-<p>User actions are quickly offloaded from the <code>EventDispatchThread</code> to background threads for processing, with all gui changes being pushed back onto the <code>EDT</code> before execution. All property models and shared objects are properly synchronized to protect their state, with synchronized blocks covering as little as possible to maximize performance.</p>
+<p>User actions are quickly offloaded from the <code>EventDispatchThread</code> to background threads for processing, with all gui changes being pushed back onto the <code>EDT</code> before execution. All property models and shared objects are properly synchronized to protect their state, with synchronized blocks covering as little as possible to maximize performance. Immutable objects and local variables are used as often as possible to further minimize the need for synchronization by reducing mutable state.</p>
 
 <h4>Examples in Code:</h4>
 <table style="width:100%">
@@ -62,6 +62,11 @@
 		<td headers="class">DefaultStock</td>
 		<td headers="description">My core stock object, which uses both propper synchronization and a practice of only returning either immutable objects or copies of fields to guard its state.</td>
 		<td headers="links"><a href="https://github.com/craigmiller160/StockMarket-2.0/blob/master/src/stockmarket/stock/DefaultStock.java">Source</a><br><a href="./stockmarket/stockmarket/stock/DefaultStock.html">JavaDoc</a></td>
+	</tr>
+	<tr>
+		<td headers="class">HistoricalQuote</td>
+		<td headers="description">The stock history is stored in HistoricalQuote immutable objects, which define a date and share price for each entry in the history list.</td>
+		<td headers="links"><a href="https://github.com/craigmiller160/StockMarket-2.0/blob/master/src/stockmarket/stock/HistoricalQuote.java">Source</a><br><a href="./stockmarket/stockmarket/stock/HistoricalQuote.html">JavaDoc</a></td>
 	</tr>
 	<tr>
 		<td headers="class">AbstractConcurrentListenerController</td>
@@ -110,7 +115,7 @@
 
 <h3>Stores Data in a MySQL Database</h3>
 
-<p>Using the <code>JDBC</code>, all data for this program is stored in a <code>MySQL</code> database. Database property information is loaded from a separate file at runtime, and periodic connections are acquired to load, save, and modify information.</p>
+<p>Using the <code>JDBC</code>, all data for this program is stored in a <code>MySQL</code> database. Database property information is loaded from a separate file at runtime, and periodic connections are acquired to load, save, and modify information. All database operations are wrapped in a Data Access Object, thus encapsulating all code for querying the database within the DAO and providing simple methods for the controller to invoke. Finally, the database connection itself has its accessed controlled by a Semaphore with a set number of permits.</p>
 
 <h4>Examples in Code:</h4>
 <table style="width:100%">
@@ -128,7 +133,7 @@
 
 <h3>Beautiful UI With Compartmentalized Design</h3>
 
-<p>Built using <code>Swing</code> and the Nimbus LookAndFeel, the GUI classes use a wide range of components and icons to achieve an elegant appearance. Structurally, the code is compartmentalized and split up into multiple classes. Higher level components are written with blank, placeholder components to stand in for components they get from other classes, with the full GUI only being assembled at runtime. This allows for UI classes to be changed or replaced with easy, as none of them directly reference the others.</p>
+<p>Built using <code>Swing</code> and the Nimbus LookAndFeel, the GUI classes use a wide range of components and icons to achieve an elegant appearance. Structurally, aggregation is the design style used to maintain maximum compartimentalization of the code. All classes that depend on a component from another class are coded with a blank component in that place, and are capable of being initialized with or without those other classes. Setter methods are provided to inject the component into the UI and trigger the re-assembly of the Swing object to incorporate the necessary item at runtime. This allows for the various UI classes to be easily maintained separately, or even swapped out at will.</p>
 
 <h4>Examples in Code:</h4>
 <table style="width:100%">
@@ -164,7 +169,7 @@
 
 <h3>Retrieves Data From the Web</h3>
 
-<p>Establishes a connection with Yahoo! Finance's servers to retrieve the data necessary to run the program. Information is downloaded as a .csv, parsed, and returned to the caller so it can be properly stored.</p>
+<p>Establishes a connection with Yahoo! Finance's servers to retrieve the data necessary to run the program. Information is downloaded as a .csv, parsed, and returned to the caller so it can be properly stored. The downloader is designed to not only encapsulate all details of the web connection, but also operate with all details of the web query proivided entirely by the Stock object. The downloader merely parses the query to ensure its compatible with the web service, downloads the data, and returns what it receives to the caller.</p>
 
 <h4>Examples in Code:</h4>
 <table style="width:100%">
@@ -200,7 +205,7 @@
 
 <h3>Utilizes the JFreeChart Library</h3>
 
-<p>For displaying the history of a given stock, this program uses the <code>JFreeChart</code> library. It provides an excellent chart that can be set to varying amounts of time to display the history of the stock.</p>
+<p>For displaying the history of a given stock, this program uses the <code>JFreeChart</code> library. It provides an excellent chart that can be set to varying amounts of time to display the history of the stock. Exploration of third party libraries has shown me some of the incredible things Java is capable of.</p>
 
 <h4>Examples in Code:</h4>
 <table style="width:100%">
@@ -218,7 +223,7 @@
 
 <h3>Utilizes my MVP Framework</h3>
 
-<p>This program fully implements my Model-View-Presenter Framework, which uses dependency inversion to keep the implementation of the various elements of the program separate from one another, while still allowing them to communicate. The framework also handles a large part of the concurrency for this program. This is one of my other projects detailed on this site, so I'll just provide a link here.</p>
+<p>My Model-View-Presenter framework was designed while working on this project. Originally just an effort to enforce MVP design throughout the program, this framework was done abstractly enough that I chose to extract it from this program and make it a stand-alone project for future re-usability. It's full described in its own page on this site, but it is an expansion on the basic MVP pattern, using reflection and Java's listener system to significantly reduce dependencies between models, views, and controllers compared to the standard MVP design.</p>
 
 <h4>Examples in Code:</h4>
 <table style="width:100%">

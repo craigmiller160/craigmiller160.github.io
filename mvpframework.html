@@ -36,7 +36,7 @@
 
 <a id="forkme_banner" href="https://github.com/craigmiller160/MVP-Framework">View Full Source on GitHub</a>
 
-<p>When I began studying industry standard Java design patterns, Model-View-Presenter was one that I truly fell in love with. Nevertheless, I felt the basic design that's shown all over the web didn't go far enough in separating its components and reducing the coupling between them, especially with the views and controllers. This simple framework has the traditional MVP design at its core, and then builds on it using Java's event listener system, advanced reflection techniques, and safe concurrency to provide a far more advanced framework for implementing the MVP pattern, which is capable of being used by any program.</p>
+<p>Sticking to standard design patterns is something I strive for as a programmer, and Model-View-Presenter has been one of my favorite designs. A variant on the traditional Model-View-Controller, details on the pattern are widespread throughout the internet. I used this pattern in several programs, each time building and enhancing it, until I felt it was deserving of its own project so that it could be easily used as a dependency in future programs that I work on. The value of this framework over the standard MVP comes from the incredibly low level of coupling it allows between models, views, and controllers. The result is that programs implementing this framework can have near-total separation of the implementations of those elements. This is accomplished through the use of the abstraction and dependency inversion of traditional MVP, combined with advanced reflective methods, and extensive use of listeners. In addition, a version of the controller of this framework designed to support concurrent actions is also provided.</p>
 
 <h4>Full JavaDoc: <a href="./mvp-framework/index.html">MVP Framework JavaDoc</a></h4>
 
@@ -44,7 +44,7 @@
 
 <h3>Advanced Reflection</h3>
 
-<p>Reflection is commonly seen in many MVP tutorials, but usually only in a very limited sense. The controller in this framework has two methods, <code>setModelProperty(String,Object...)</code> and <code>getModelProperty(String,Object...)</code> that are incredibly powerful. Their main strength comes from being able to handle any number of parameters, regardless of their types. Even zero-parameter and variable argument methods are supported. Any public setter or getter in any model regsitered with this controller can be successfully invoked.</p>
+<p>Reflection is commonly seen in many MVP tutorials, but usually only in a very limited sense. The controller in this framework has three methods, <code>setModelProperty(String,Object...)</code>  and <code>getModelProperty(String,Object...)</code> that are incredibly powerful. Their main strength comes from being able to handle any number of parameters, regardless of their types. Even zero-parameter and variable argument methods are supported. Any public setter or getter in any model regsitered with this controller can be successfully invoked without needing a specific reference to that method.</p>
 
 <h4>Examples in Code:</h4>
 <table style="width:100%">
