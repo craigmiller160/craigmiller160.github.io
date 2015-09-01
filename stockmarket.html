@@ -42,6 +42,24 @@
 
 <h2>Key Components</h2>
 
+<h3>Built Using Maven</h3>
+
+<p>Like all major Java projects, Maven has been the build tool for managing this project's lifecycle. All dependencies, including the MVP Framework project that I personally created, are loaded from the Maven repository and managed through the pom.xml. When packaging, the Maven Assembly Plugin is used to package all dependencies in with this program.</p>
+
+<h4>Examples in Code:</h4>
+<table style="width:100%">
+	<tr>
+		<th id="class">File</th>
+		<th id="description">Description</th>
+		<th id="links">Links</th>
+	</tr>
+	<tr>
+		<td headers="class">pom.xml</td>
+		<td headers="description">The POM.xml file for my Maven configuration.</td>
+		<td headers="links"><a href="https://github.com/craigmiller160/StockMarket-2.0/blob/master/pom.xml">Source</a></td>
+	</tr>
+</table>
+
 <h3>Safely Concurrent</h3>
 
 <p>User actions are quickly offloaded from the <code>EventDispatchThread</code> to background threads for processing, with all gui changes being pushed back onto the <code>EDT</code> before execution. All property models and shared objects are properly synchronized to protect their state, with synchronized blocks covering as little as possible to maximize performance. Immutable objects and local variables are used as often as possible to further minimize the need for synchronization by reducing mutable state.</p>
@@ -56,17 +74,17 @@
 	<tr>
 		<td headers="class">GUIStateModel</td>
 		<td headers="description">An example of one of my JavaBean bound property models, and its use of propper synchronization to allow multiple threads to change its state.</td>
-		<td headers="links"><a href="https://github.com/craigmiller160/StockMarket-2.0/blob/master/src/io/craigmiller160/stockmarket/model/GUIStateModel.java">Source</a><br><a href="./stockmarket/io/craigmiller160/stockmarket/model/GUIStateModel.html">JavaDoc</a></td>
+		<td headers="links"><a href="https://github.com/craigmiller160/StockMarket-2.0/blob/master/src/main/java/io/craigmiller160/stockmarket/model/GUIStateModel.java">Source</a><br><a href="./stockmarket/io/craigmiller160/stockmarket/model/GUIStateModel.html">JavaDoc</a></td>
 	</tr>
 	<tr>
 		<td headers="class">DefaultStock</td>
 		<td headers="description">My core stock object, which uses both propper synchronization and a practice of only returning either immutable objects or copies of fields to guard its state.</td>
-		<td headers="links"><a href="https://github.com/craigmiller160/StockMarket-2.0/blob/master/src/io/craigmiller160/stockmarket/stock/DefaultStock.java">Source</a><br><a href="./stockmarket/io/craigmiller160/stockmarket/stock/DefaultStock.html">JavaDoc</a></td>
+		<td headers="links"><a href="https://github.com/craigmiller160/StockMarket-2.0/blob/master/src/main/java/io/craigmiller160/stockmarket/stock/DefaultStock.java">Source</a><br><a href="./stockmarket/io/craigmiller160/stockmarket/stock/DefaultStock.html">JavaDoc</a></td>
 	</tr>
 	<tr>
 		<td headers="class">HistoricalQuote</td>
 		<td headers="description">The stock history is stored in HistoricalQuote immutable objects, which define a date and share price for each entry in the history list.</td>
-		<td headers="links"><a href="https://github.com/craigmiller160/StockMarket-2.0/blob/master/src/io/craigmiller160/stockmarket/stock/HistoricalQuote.java">Source</a><br><a href="./stockmarket/io/craigmiller160/stockmarket/stock/HistoricalQuote.html">JavaDoc</a></td>
+		<td headers="links"><a href="https://github.com/craigmiller160/StockMarket-2.0/blob/master/src/main/java/io/craigmiller160/stockmarket/stock/HistoricalQuote.java">Source</a><br><a href="./stockmarket/io/craigmiller160/stockmarket/stock/HistoricalQuote.html">JavaDoc</a></td>
 	</tr>
 	<tr>
 		<td headers="class">AbstractConcurrentListenerController</td>
@@ -89,22 +107,22 @@
 	<tr>
 		<td headers="class">Language</td>
 		<td headers="description">Uses a thread-safe Singleton via the Singleton-Holder pattern for instantiation.</td>
-		<td headers="links"><a href="https://github.com/craigmiller160/StockMarket-2.0/blob/master/src/io/craigmiller160/stockmarket/util/Language.java">Source</a><br><a href="./stockmarket/io/craigmiller160/stockmarket/util/Language.html">JavaDoc</a></td>
+		<td headers="links"><a href="https://github.com/craigmiller160/StockMarket-2.0/blob/master/src/main/java/io/craigmiller160/stockmarket/util/Language.java">Source</a><br><a href="./stockmarket/io/craigmiller160/stockmarket/util/Language.html">JavaDoc</a></td>
 	</tr>
 	<tr>
 		<td headers="class">DialogFactory</td>
 		<td headers="description">Uses the Factory pattern to create GUI dialogs.</td>
-		<td headers="links"><a href="https://github.com/craigmiller160/StockMarket-2.0/blob/master/src/io/craigmiller160/stockmarket/gui/dialog/DialogFactory.java">Source</a><br><a href="./stockmarket/io/craigmiller160/stockmarket/gui/dialog/DialogFactory.html">JavaDoc</a></td>
+		<td headers="links"><a href="https://github.com/craigmiller160/StockMarket-2.0/blob/master/src/main/java/io/craigmiller160/stockmarket/gui/dialog/DialogFactory.java">Source</a><br><a href="./stockmarket/io/craigmiller160/stockmarket/gui/dialog/DialogFactory.html">JavaDoc</a></td>
 	</tr>
 	<tr>
 		<td headers="class">SQLPortfolioDAO</td>
 		<td headers="description">Uses the Data Access Object pattern to provide simple methods that perform complex database operations.</td>
-		<td headers="links"><a href="https://github.com/craigmiller160/StockMarket-2.0/blob/master/src/io/craigmiller160/stockmarket/controller/SQLPortfolioDAO.java">Source</a><br><a href="./stockmarket/io/craigmiller160/stockmarket/controller/SQLPortfolioDAO.html">JavaDoc</a></td>
+		<td headers="links"><a href="https://github.com/craigmiller160/StockMarket-2.0/blob/master/src/main/java/io/craigmiller160/stockmarket/controller/SQLPortfolioDAO.java">Source</a><br><a href="./stockmarket/io/craigmiller160/stockmarket/controller/SQLPortfolioDAO.html">JavaDoc</a></td>
 	</tr>
 	<tr>
 		<td headers="class">GUIStateModel</td>
 		<td headers="description">Uses the Observer pattern (a JavaBean bound property change variant). Listener classes observe this model, and are notified through fired events when a change occurs.</td>
-		<td headers="links"><a href="https://github.com/craigmiller160/StockMarket-2.0/blob/master/src/io/craigmiller160/stockmarket/model/GUIStateModel.java">Source</a><br><a href="./stockmarket/io/craigmiller160/stockmarket/model/GUIStateModel.html">JavaDoc</a></td>
+		<td headers="links"><a href="https://github.com/craigmiller160/StockMarket-2.0/blob/master/src/main/java/io/craigmiller160/stockmarket/model/GUIStateModel.java">Source</a><br><a href="./stockmarket/io/craigmiller160/stockmarket/model/GUIStateModel.html">JavaDoc</a></td>
 	</tr>
 	<tr>
 		<td headers="class">MVP Framework</td>
@@ -127,7 +145,7 @@
 	<tr>
 		<td headers="class">SQLPortfolioDAO</td>
 		<td headers="description">The class that handles the database connection.</td>
-		<td headers="links"><a href="https://github.com/craigmiller160/StockMarket-2.0/blob/master/src/io/craigmiller160/stockmarket/controller/SQLPortfolioDAO.java">Source</a><br><a href="./stockmarket/io/craigmiller160/stockmarket/controller/SQLPortfolioDAO.html">JavaDoc</a></td>
+		<td headers="links"><a href="https://github.com/craigmiller160/StockMarket-2.0/blob/master/src/main/java/io/craigmiller160/stockmarket/controller/SQLPortfolioDAO.java">Source</a><br><a href="./stockmarket/io/craigmiller160/stockmarket/controller/SQLPortfolioDAO.html">JavaDoc</a></td>
 	</tr>
 </table>
 
@@ -145,7 +163,7 @@
 	<tr>
 		<td headers="class">Frame</td>
 		<td headers="description">The top level container, the window, of the program, with placeholder components for all the other elements to be added at runtime.</td>
-		<td headers="links"><a href="https://github.com/craigmiller160/StockMarket-2.0/blob/master/src/io/craigmiller160/stockmarket/gui/Frame.java">Source</a><br><a href="./stockmarket/io/craigmiller160/stockmarket/gui/Frame.html">JavaDoc</a></td>
+		<td headers="links"><a href="https://github.com/craigmiller160/StockMarket-2.0/blob/master/src/main/java/io/craigmiller160/stockmarket/gui/Frame.java">Source</a><br><a href="./stockmarket/io/craigmiller160/stockmarket/gui/Frame.html">JavaDoc</a></td>
 	</tr>
 </table>
 
@@ -163,7 +181,7 @@
 	<tr>
 		<td headers="class">AbstractDefaultDialog</td>
 		<td headers="description">The class that defines the API for all dialogs used in this program.</td>
-		<td headers="links"><a href="https://github.com/craigmiller160/StockMarket-2.0/blob/master/src/io/craigmiller160/stockmarket/gui/dialog/AbstractDefaultDialog.java">Source</a><br><a href="./stockmarket/io/craigmiller160/stockmarket/gui/dialog/AbstractDefaultDialog.html">JavaDoc</a></td>
+		<td headers="links"><a href="https://github.com/craigmiller160/StockMarket-2.0/blob/master/src/main/java/io/craigmiller160/stockmarket/gui/dialog/AbstractDefaultDialog.java">Source</a><br><a href="./stockmarket/io/craigmiller160/stockmarket/gui/dialog/AbstractDefaultDialog.html">JavaDoc</a></td>
 	</tr>
 </table>
 
@@ -181,7 +199,7 @@
 	<tr>
 		<td headers="class">YahooStockDownloader</td>
 		<td headers="description">Handles the connection to Yahoo! Finance and downloads the requested stock data.</td>
-		<td headers="links"><a href="https://github.com/craigmiller160/StockMarket-2.0/blob/master/src/io/craigmiller160/stockmarket/stock/YahooStockDownloader.java">Source</a><br><a href="./stockmarket/io/craigmiller160/stockmarket/stock/YahooStockDownloader.html">JavaDoc</a></td>
+		<td headers="links"><a href="https://github.com/craigmiller160/StockMarket-2.0/blob/master/src/main/java/io/craigmiller160/stockmarket/stock/YahooStockDownloader.java">Source</a><br><a href="./stockmarket/io/craigmiller160/stockmarket/stock/YahooStockDownloader.html">JavaDoc</a></td>
 	</tr>
 </table>
 
@@ -199,7 +217,7 @@
 	<tr>
 		<td headers="class">Language</td>
 		<td headers="description">Stores the current language setting and retrieves <code>Strings</code> from the <code>ResourceBundle</code> for the GUI.</td>
-		<td headers="links"><a href="https://github.com/craigmiller160/StockMarket-2.0/blob/master/src/io/craigmiller160/stockmarket/util/Language.java">Source</a><br><a href="./stockmarket/io/craigmiller160/stockmarket/util/Language.html">JavaDoc</a></td>
+		<td headers="links"><a href="https://github.com/craigmiller160/StockMarket-2.0/blob/master/src/main/java/io/craigmiller160/stockmarket/util/Language.java">Source</a><br><a href="./stockmarket/io/craigmiller160/stockmarket/util/Language.html">JavaDoc</a></td>
 	</tr>
 </table>
 
@@ -217,7 +235,7 @@
 	<tr>
 		<td headers="class">StockHistoryPanel</td>
 		<td headers="description">Displays the stock history chart in the GUI.</td>
-		<td headers="links"><a href="https://github.com/craigmiller160/StockMarket-2.0/blob/master/src/io/craigmiller160/stockmarket/gui/StockHistoryPanel.java">Source</a><br><a href="./stockmarket/io/craigmiller160/stockmarket/gui/StockHistoryPanel.html">JavaDoc</a></td>
+		<td headers="links"><a href="https://github.com/craigmiller160/StockMarket-2.0/blob/master/src/main/java/io/craigmiller160/stockmarket/gui/StockHistoryPanel.java">Source</a><br><a href="./stockmarket/io/craigmiller160/stockmarket/gui/StockHistoryPanel.html">JavaDoc</a></td>
 	</tr>
 </table>
 
