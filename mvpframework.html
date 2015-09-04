@@ -36,7 +36,7 @@
 
 <a id="forkme_banner" href="https://github.com/craigmiller160/MVP-Framework">View Full Source on GitHub</a>
 
-<p>Sticking to standard design patterns is something I strive for as a programmer, and Model-View-Presenter has been one of my favorite designs. A variant on the traditional Model-View-Controller, details on the pattern are widespread throughout the internet. I used this pattern in several programs, each time building and enhancing it, until I felt it was deserving of its own project so that it could be easily used as a dependency in future programs that I work on. The value of this framework over the standard MVP comes from the incredibly low level of coupling it allows between models, views, and controllers. The result is that programs implementing this framework can have near-total separation of the implementations of those elements. This is accomplished through the use of the abstraction and dependency inversion of traditional MVP, combined with advanced reflective methods, and extensive use of listeners. In addition, a version of the controller of this framework designed to support concurrent actions is also provided.</p>
+<p>Strict adherence to standard design patterns is always a good goal for developing programs, as it produces clear, easy to understand code. This framework emerged out of an ongoing effort to produce programs that adhered to various forms of the Model-View-Controller structure. A variant of that pattern, called Model-View-Presenter, uses extensive dependency inversion to achieve its separation of concerns. That pattern is at the core of this framework, however this project expands MVP in several key ways. It makes liberal use of the Swing event listener system, using it to pass information between views and controllers. This negates the need for the view to have any knowledge of the controller itself. Meanwhile, advanced reflection in the controller allows it to invoke any and all methods in the models without needing a direct reference to the model itself. Finally, a concurrent layer has been added, providing a tool for updating models and performing caculations on background threads before safely passing <code>PropertyChangeEvent</tt> updates back to the <code>EventDispatchThread</code>.</p>
 
 <h4>Full JavaDoc: <a href="./mvp-framework/index.html">MVP Framework JavaDoc</a></h4>
 
@@ -44,7 +44,7 @@
 
 <h3>Advanced Reflection</h3>
 
-<p>Reflection is commonly seen in many MVP tutorials, but usually only in a very limited sense. The controller in this framework has three methods, <code>setModelProperty(String,Object...)</code>  and <code>getModelProperty(String,Object...)</code> that are incredibly powerful. Their main strength comes from being able to handle any number of parameters, regardless of their types. Even zero-parameter and variable argument methods are supported. Any public setter or getter in any model regsitered with this controller can be successfully invoked without needing a specific reference to that method.</p>
+<p>Reflection is commonly seen in many MVP tutorials, but usually only in a very limited sense. The controller in this framework has three methods, <code>setModelProperty(String,Object...),</code>  <code>getModelProperty(String,Object...)</code>, and <code>invokeMethod(String,Object...)</code> that are incredibly powerful. Their main strength comes from being able to handle any number of parameters, regardless of their types. Even zero-parameter and variable argument methods are supported. Any public setter or getter (or any other method, with the third one) in any model regsitered with this controller can be successfully invoked without needing a specific reference to the model class itself.</p>
 
 <h4>Examples in Code:</h4>
 <table style="width:100%">
@@ -103,7 +103,7 @@
 
 <h3>Contact</h3>
 
-<p>Want to contact me? Feel free to email me at <u>craigmiller160@gmail.com</u>.</p>
+<p>Want to contact Craig Miller? Feel free to email at <u>craigmiller160@gmail.com</u>.</p>
       </section>
     </div>
 

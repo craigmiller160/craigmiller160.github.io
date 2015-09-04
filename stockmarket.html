@@ -36,7 +36,7 @@
 
 <a id="forkme_banner" href="https://github.com/craigmiller160/StockMarket-2.0">View Full Source on GitHub</a>
 
-<p>One of the greatest full programs I've built to date. This program was inspired by Yahoo! Finance, which offers a great (and free) API for obtaining real-time information about the stock market. The program is a stock market simulation, allowing users to lookup real information about existing stocks, and then "buy" and "sell" them (again, simulated) to try and make a maximum profit. This program pushed me to master thread-safe class design, proper programming structure, and database access, just to name a few. This program has been the backbone of my growth as a programmer, as I initially completed a much simpler version of this months ago, yet kept coming back and using it as the basis for growing my skills and improving as a developer. As Version 2.0, a complete re-write from the ground up, approaches completion (as of 8/30/2015 it's a few weeks away from completion), it has become a showcase of the many skills I have gained from my experience.</p>
+<p>A complex, complete program, StockMarket is an educational game, a stock trading simulation where the user "buys" and "sells" stocks and attempts to make the maximum profit. It acquires real-time market information from Yahoo! Finance to accomplish this task. This program demonstrates a wide range of programming skills, including concurrency (and the all-important thread safety that comes with it), proper design patterns, database access, multi-lingual support, and so much more.</p>
 
 <h4>Full JavaDoc: <a href="./stockmarket/index.html">Stock Market JavaDoc</a></h4>
 
@@ -73,12 +73,12 @@
 	</tr>
 	<tr>
 		<td headers="class">GUIStateModel</td>
-		<td headers="description">An example of one of my JavaBean bound property models, and its use of propper synchronization to allow multiple threads to change its state.</td>
+		<td headers="description">An example of a JavaBean bound property model, and its use of propper synchronization to allow multiple threads to change its state.</td>
 		<td headers="links"><a href="https://github.com/craigmiller160/StockMarket-2.0/blob/master/src/main/java/io/craigmiller160/stockmarket/model/GUIStateModel.java">Source</a><br><a href="./stockmarket/io/craigmiller160/stockmarket/model/GUIStateModel.html">JavaDoc</a></td>
 	</tr>
 	<tr>
 		<td headers="class">DefaultStock</td>
-		<td headers="description">My core stock object, which uses both propper synchronization and a practice of only returning either immutable objects or copies of fields to guard its state.</td>
+		<td headers="description">The core stock object, which uses both propper synchronization and a practice of only returning either immutable objects or copies of fields to guard its state.</td>
 		<td headers="links"><a href="https://github.com/craigmiller160/StockMarket-2.0/blob/master/src/main/java/io/craigmiller160/stockmarket/stock/DefaultStock.java">Source</a><br><a href="./stockmarket/io/craigmiller160/stockmarket/stock/DefaultStock.html">JavaDoc</a></td>
 	</tr>
 	<tr>
@@ -88,7 +88,7 @@
 	</tr>
 	<tr>
 		<td headers="class">AbstractConcurrentListenerController</td>
-		<td headers="description">A class from my MVP Framework project, the controller of this project extends this class. It handles the process of switching between the EDT and background threads.</td>
+		<td headers="description">A class from the MVP Framework project, which the controller of this project extends. It handles the process of switching between the EDT and background threads.</td>
 		<td headers="links"><a href="https://github.com/craigmiller160/MVP-Framework/blob/master/src/io/craigmiller160/mvp/concurrent/AbstractConcurrentListenerController.java">Source</a><br><a href="./mvp-framework/io/craigmiller160/mvp/concurrent/AbstractConcurrentListenerController.html">JavaDoc</a></td>
 	</tr>
 </table>
@@ -126,7 +126,7 @@
 	</tr>
 	<tr>
 		<td headers="class">MVP Framework</td>
-		<td headers="description">The Model-View-Presenter pattern is implemented via my MVP Framework, a separate project hosted here.</td>
+		<td headers="description">The Model-View-Presenter pattern is implemented via the MVP Framework, a separate project hosted here.</td>
 		<td headers="links"><a href="mvpframework.html">MVP Framework Project</a></td>
 	</tr>
 </table>
@@ -169,7 +169,7 @@
 
 <h3>Uniform Dialog API</h3>
 
-<p>In many cases I needed a more complex dialog than what was offered by <code>JOptionPane</code>. To avoid inconsitency in appearance, a dialog API was designed to ensure that subclasses could produce dialogs as simple or complex as needed by implementing a handful of methods. Most importantly, no matter how much or how little the dialog contained, the basic visual style would always be consistent.</p>
+<p>Complex dialog requirements were more than the simple <code>JOptionPane</code> class could provide, so a uniform dialog API was constructed. All subclasses can produce dialogs of varying levels of complexity, while still maintaining the same basic look-and-feel.</p>
 
 <h4>Examples in Code:</h4>
 <table style="width:100%">
@@ -239,9 +239,9 @@
 	</tr>
 </table>
 
-<h3>Utilizes my MVP Framework</h3>
+<h3>Utilizes the MVP Framework</h3>
 
-<p>My Model-View-Presenter framework was designed while working on this project. Originally just an effort to enforce MVP design throughout the program, this framework was done abstractly enough that I chose to extract it from this program and make it a stand-alone project for future re-usability. It's full described in its own page on this site, but it is an expansion on the basic MVP pattern, using reflection and Java's listener system to significantly reduce dependencies between models, views, and controllers compared to the standard MVP design.</p>
+<p>A separate project developed alongside this and other programs. An effort to adhere to strict separation of concerns, and to build a re-usable framework that went beyond mere dependency inversion to achieve it, this collection of classes is an expanded version of the traditional Model-View-Presenter pattern. It uses event listeners and reflection to produce near-total separation of concerns in the code.</p>
 
 <h4>Examples in Code:</h4>
 <table style="width:100%">
@@ -259,7 +259,7 @@
 
 <h3>Contact</h3>
 
-<p>Want to contact me? Feel free to email me at <u>craigmiller160@gmail.com</u>.</p>
+<p>Want to contact Craig Miller? Feel free to email at <u>craigmiller160@gmail.com</u>.</p>
       </section>
     </div>
 
