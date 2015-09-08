@@ -55,8 +55,31 @@
 	</tr>
 	<tr>
 		<td headers="class">pom.xml</td>
-		<td headers="description">The POM.xml file for my Maven configuration.</td>
+		<td headers="description">The pom.xml file for my Maven configuration.</td>
 		<td headers="links"><a href="https://github.com/craigmiller160/StockMarket-2.0/blob/master/pom.xml">Source</a></td>
+	</tr>
+</table>
+
+<h3>Utilizes Spring IOC Container</h3>
+
+<p>Construction of persistent beans and injection of their dependencies is handled by Spring's context container. Bean post processing is used to finish assembling the controller.</p>
+
+<h4>Examples in Code:</h4>
+<table style="width:100%">
+	<tr>
+		<th id="class">File</th>
+		<th id="description">Description</th>
+		<th id="links">Links</th>
+	</tr>
+	<tr>
+		<td headers="class">spring.xml</td>
+		<td headers="description">The spring.xml file used by the container to construct the beans.</td>
+		<td headers="links"><a href="https://github.com/craigmiller160/StockMarket-2.0/blob/master/src/main/java/spring.xml">Source</a></td>
+	</tr>
+	<tr>
+		<td headers="class">InitPostProcessor</td>
+		<td headers="description">The bean post processor for initializing the controller. Uses <code>ApplicationContextAware</code> to access other beans in the container when configuring the controller.</td>
+		<td headers="links"><a href="https://github.com/craigmiller160/StockMarket-2.0/blob/master/src/main/java/io/craigmiller160/stockmarket/InitPostProcessor.java">Source</a><br><a href="./stockmarket/io/craigmiller160/stockmarket/InitPostProcessor.html">JavaDoc</a></td>
 	</tr>
 </table>
 
