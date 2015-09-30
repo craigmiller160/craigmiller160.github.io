@@ -1,4 +1,5 @@
 io.craigmiller160.stockmarket
+io.craigmiller160.stockmarket.aspects
 io.craigmiller160.stockmarket.controller
 io.craigmiller160.stockmarket.gui
 io.craigmiller160.stockmarket.gui.dialog

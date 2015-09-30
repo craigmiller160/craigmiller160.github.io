@@ -72,14 +72,14 @@
 		<th id="links">Links</th>
 	</tr>
 	<tr>
-		<td headers="class">spring.xml</td>
-		<td headers="description">The spring.xml file used by the container to construct the beans.</td>
-		<td headers="links"><a href="https://github.com/craigmiller160/StockMarket-2.0/blob/master/src/main/java/spring.xml">Source</a></td>
+		<td headers="class">spring-context-data.xml</td>
+		<td headers="description">One of the Spring xml configuration files used for the IOC container. This one handles configuring the DAO and DataSource.</td>
+		<td headers="links"><a href="https://github.com/craigmiller160/StockMarket-2.0/blob/master/src/main/resources/config/spring-context-data.xml">Source</a></td>
 	</tr>
 	<tr>
-		<td headers="class">InitPostProcessor</td>
-		<td headers="description">The bean post processor for initializing the controller. Uses <code>ApplicationContextAware</code> to access other beans in the container when configuring the controller.</td>
-		<td headers="links"><a href="https://github.com/craigmiller160/StockMarket-2.0/blob/master/src/main/java/io/craigmiller160/stockmarket/InitPostProcessor.java">Source</a><br><a href="./stockmarket/io/craigmiller160/stockmarket/InitPostProcessor.html">JavaDoc</a></td>
+		<td headers="class">ModelPostProcessor</td>
+		<td headers="description">The bean post processor for property model classes. Uses <code>ApplicationContextAware</code> to access the controller bean from the container.</td>
+		<td headers="links"><a href="https://github.com/craigmiller160/StockMarket-2.0/blob/master/src/main/java/io/craigmiller160/stockmarket/ModelPostProcessor.java">Source</a><br><a href="./stockmarket/io/craigmiller160/stockmarket/ModelPostProcessor.html">JavaDoc</a></td>
 	</tr>
 </table>
 
@@ -113,6 +113,52 @@
 		<td headers="class">AbstractConcurrentListenerController</td>
 		<td headers="description">A class from the MVP Framework project, which the controller of this project extends. It handles the process of switching between the EDT and background threads.</td>
 		<td headers="links"><a href="https://github.com/craigmiller160/MVP-Framework/blob/master/src/io/craigmiller160/mvp/concurrent/AbstractConcurrentListenerController.java">Source</a><br><a href="./mvp-framework/io/craigmiller160/mvp/concurrent/AbstractConcurrentListenerController.html">JavaDoc</a></td>
+	</tr>
+</table>
+
+<h3>Stores Data in a MySQL Database</h3>
+
+<p>Using the <code>JDBC</code>, all data for this program is stored in a <code>MySQL</code> database. Originally, this was managed by a DAO with boilerplate <code>JDBC</code> code, but in version 2.2 it was updated to use the <code>Hibernate</code> framework instead. Both DAO versions have been provided here.</p>
+
+<h4>Examples in Code:</h4>
+<table style="width:100%">
+	<tr>
+		<th id="class">Class/Interface</th>
+		<th id="description">Description</th>
+		<th id="links">Links</th>
+	</tr>
+	<tr>
+		<td headers="class">HibernatePortfolioDAO</td>
+		<td headers="description">A DAO that uses the Hibernate framework API to handle database access. The DAO is configured using the Spring IOC container (see the Spring section above for link), which sets the <code>SessionFactory</code>. All sessions are properly closed and the Hibernate transaction API is used to ensure atomic writes.</td>
+		<td headers="links"><a href="https://github.com/craigmiller160/StockMarket-2.0/blob/master/src/main/java/io/craigmiller160/stockmarket/controller/HibernatePortfolioDAO.java">Source</a><br><a href="./stockmarket/io/craigmiller160/stockmarket/controller/HibernatePortfolioDAO.html">JavaDoc</a></td>
+	</tr>
+	<tr>
+		<td headers="class">SQLPortfolioDAO</td>
+		<td headers="description">The original JDBC DAO (Deprecated as of Version 2.2). It uses a semaphore to limit database connections, modifies the database in atomic transactions, and executes queries in <code>PreparedStatements</code> to prevent SQL Injection.</td>
+		<td headers="links"><a href="https://github.com/craigmiller160/StockMarket-2.0/blob/master/src/main/java/io/craigmiller160/stockmarket/controller/SQLPortfolioDAO.java">Source</a><br><a href="./stockmarket/io/craigmiller160/stockmarket/controller/SQLPortfolioDAO.html">JavaDoc</a></td>
+	</tr>
+</table>
+
+<h3>Logging with SFL4J+Log4J2 & AspectJ</h3>
+
+<p>All logging is done through the SLF4J logging facade, implemented through Log4J2. In addition, all logging code is stored in AspectJ aspects, rather than cluttering the code with logger calls.</p>
+
+<h4>Examples in Code:</h4>
+<table style="width:100%">
+	<tr>
+		<th id="class">Class/Interface</th>
+		<th id="description">Description</th>
+		<th id="links">Links</th>
+	</tr>
+	<tr>
+		<td headers="class">ExceptionLogging</td>
+		<td headers="description">An aspect that logs all exceptions that occur during the operation of the program.</td>
+		<td headers="links"><a href="https://github.com/craigmiller160/StockMarket-2.0/blob/master/src/main/java/io/craigmiller160/stockmarket/aspects/ExceptionLogging.aj">Source</a>
+	</tr>
+	<tr>
+		<td headers="class">ControllerLogging</td>
+		<td headers="description">An aspect that logs the operations of the controller class. It logs a simple DEBUG level message when a core method is entered, and an INFO level message if the method executes successfully.</td>
+		<td headers="links"><a href="https://github.com/craigmiller160/StockMarket-2.0/blob/master/src/main/java/io/craigmiller160/stockmarket/aspects/ControllerLogging.aj">Source</a>
 	</tr>
 </table>
 
@@ -151,29 +197,6 @@
 		<td headers="class">MVP Framework</td>
 		<td headers="description">The Model-View-Presenter pattern is implemented via the MVP Framework, a separate project hosted here.</td>
 		<td headers="links"><a href="mvpframework.html">MVP Framework Project</a></td>
-	</tr>
-</table>
-
-<h3>Stores Data in a MySQL Database</h3>
-
-<p>Using the <code>JDBC</code>, all data for this program is stored in a <code>MySQL</code> database. Originally, this was managed by a DAO with boilerplate <code>JDBC</code> code, but in version 2.2 it was updated to use the <code>Hibernate</code> framework instead. Both DAO versions have been provided here.</p>
-
-<h4>Examples in Code:</h4>
-<table style="width:100%">
-	<tr>
-		<th id="class">Class/Interface</th>
-		<th id="description">Description</th>
-		<th id="links">Links</th>
-	</tr>
-	tr>
-		<td headers="class">HibernatePortfolioDAO</td>
-		<td headers="description">A DAO that uses the Hibernate framework API to handle database access. The DAO is configured using the Spring IOC container (see the Spring section above for link), which sets the <code>SessionFactory</code>. All sessions are properly closed and the Hibernate transaction API is used to ensure atomic writes.</td>
-		<td headers="links"><a href="https://github.com/craigmiller160/StockMarket-2.0/blob/master/src/main/java/io/craigmiller160/stockmarket/controller/HibernatePortfolioDAO.java">Source</a><br><a href="./stockmarket/io/craigmiller160/stockmarket/controller/HibernatePortfolioDAO.html">JavaDoc</a></td>
-	</tr>
-	<tr>
-		<td headers="class">SQLPortfolioDAO</td>
-		<td headers="description">The original JDBC DAO (Deprecated as of Version 2.2). It uses a semaphore to limit database connections, modifies the database in atomic transactions, and executes queries in <code>PreparedStatements</code> to prevent SQL Injection.</td>
-		<td headers="links"><a href="https://github.com/craigmiller160/StockMarket-2.0/blob/master/src/main/java/io/craigmiller160/stockmarket/controller/SQLPortfolioDAO.java">Source</a><br><a href="./stockmarket/io/craigmiller160/stockmarket/controller/SQLPortfolioDAO.html">JavaDoc</a></td>
 	</tr>
 </table>
 
