@@ -118,7 +118,7 @@
 
 <h3>Stores Data in a MySQL Database</h3>
 
-<p>Using the <code>JDBC</code>, all data for this program is stored in a <code>MySQL</code> database. Originally, this was managed by a DAO with boilerplate <code>JDBC</code> code, but in version 2.2 it was updated to use the <code>Hibernate</code> framework instead. Both DAO versions have been provided here.</p>
+<p>Using the <code>JDBC</code>, all data for this program is stored in a <code>MySQL</code> database. Originally, this was managed by a DAO with boilerplate <code>JDBC</code> code, but in version 2.2 it was updated to use the <code>Hibernate</code> framework instead. Both DAO versions have been provided here, as well as the service layer on top of the <code>HibernateDao</code> that was added in version 2.4.</p>
 
 <h4>Examples in Code:</h4>
 <table style="width:100%">
@@ -128,9 +128,14 @@
 		<th id="links">Links</th>
 	</tr>
 	<tr>
-		<td headers="class">HibernatePortfolioDAO</td>
-		<td headers="description">A DAO that uses the Hibernate framework API to handle database access. The DAO is configured using the Spring IOC container (see the Spring section above for link), which sets the <code>SessionFactory</code>. All sessions are properly closed and the Hibernate transaction API is used to ensure atomic writes.</td>
-		<td headers="links"><a href="https://github.com/craigmiller160/StockMarket-2.0/blob/master/src/main/java/io/craigmiller160/stockmarket/controller/HibernatePortfolioDAO.java">Source</a><br><a href="./stockmarket/io/craigmiller160/stockmarket/controller/HibernatePortfolioDAO.html">JavaDoc</a></td>
+		<td headers="class">HibernatePortfolioDao</td>
+		<td headers="description">A DAO that uses the Hibernate framework API to handle database access. The DAO is configured using the Spring IOC container (see the Spring section above for link), which sets the <code>SessionFactory</code>.</td>
+		<td headers="links"><a href="https://github.com/craigmiller160/StockMarket-2.0/blob/master/src/main/java/io/craigmiller160/stockmarket/controller/HibernatePortfolioDao.java">Source</a><br><a href="./stockmarket/io/craigmiller160/stockmarket/controller/HibernatePortfolioDao.html">JavaDoc</a></td>
+	</tr>
+	<tr>
+		<td headers="class">PortfolioPersistServiceImpl</td>
+		<td headers="description">The service layer on top of the DAO. It adds additional operations to the simple CRUD operations of the DAO, such as setting the values of a newly-created portfolio to insert into the database. It also uses <code>Spring's</code> transaction framework to handle opening/closing sessions and starting/committing transactions with the underlying DAO's operations.</td>
+		<td headers="links"><a href="https://github.com/craigmiller160/StockMarket-2.0/blob/master/src/main/java/io/craigmiller160/stockmarket/controller/PortfolioPersistServiceImpl.java">Source</a><br><a href="./stockmarket/io/craigmiller160/stockmarket/controller/PortfolioPersistServiceImpl.html">JavaDoc</a></td>
 	</tr>
 	<tr>
 		<td headers="class">SQLPortfolioDAO</td>
