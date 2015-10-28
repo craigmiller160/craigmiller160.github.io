@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Craigmiller160.GitHub.io : ">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+	<style>
+	table, th, td{border: 1px solid black}
+	</style>
+	
+    <title>CraigMiller160-School Portal</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="index.html">Return to Main Page</a>
+
+          <h1 id="project_title">School Portal</h1>
+          <h2 id="project_tagline"></h2>
+
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h2>
+<a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true"><span class="octicon octicon-link"></span></a>School Portal Web Application</h2>
+
+<a id="forkme_banner" href="https://github.com/craigmiller160/SchoolWebPortal">View Full Source on GitHub</a>
+
+<p id="school-note">NOTE: Currently a work-in-progress, and only deployed on local development server.</p>
+
+<p>A full Java web application, built around the Spring MVC framework. This demo application is a web portal for a fictional high school, providing tools for both administrators and students. Administrators can register and modify available courses and override student selections on course schedules, while students can simply choose their schedules from the available courses.</p>
+
+<p>It makes full use of the power of the <code>Spring</code> framework. The IOC Container, ORM tools, Transaction management, testing, web and web-MVC tools. It is unit tested through <code>JUnit</code>. On the backend it is supported by a <code>MySQL</code> database, and ORM mapping is handled by the <code>Hibernate</code> framework using <code>JPA</code> annotations. <code>JSP</code> pages are used as the primary view technology, with full use of <code>JSTL</code> and <code>Spring</code> tag libraries. All pages are internationalized, and all controllers are designed with full thread-safety in mind.</p>
+
+<h4>Full JavaDoc: <a href="./schoolportal/index.html">School Portal JavaDoc</a></h4>
+
+<h2>Key Components</h2>
+
+<h3>Spring-Driven Java Web Application</h3>
+
+<p><code>Spring</code> is at the heart of this application. The deployment descriptor is set to pass all activity to Spring's <code>DispatcherServlet</code>, which in turn uses mapped Spring controllers to perform actions. XML configuration is used for Spring API beans, while application beans are annotation-driven.</p>
+
+<h4>Examples in Code:</h4>
+<table style="width:100%">
+	<tr>
+		<th id="class">File</th>
+		<th id="description">Description</th>
+		<th id="links">Links</th>
+	</tr>
+	<tr>
+		<td headers="class">Deployment Descriptor</td>
+		<td headers="description">The web.xml deployment descriptor for this application. In addition to passing all request to the <code>DispatcherServlet</code>, it uses the Spring <code>HiddenHttpMethodFilter</code> to enable the use of POST/DELETE HTTP methods.</td>
+		<td headers="links"><a href="https://github.com/craigmiller160/SchoolWebPortal/blob/master/src/main/webapp/WEB-INF/web.xml">Source</a></td>
+	</tr>
+	<tr>
+		<td headers="class">Spring Web Configuration</td>
+		<td headers="description">The dispatcher-servlet-context.xml configuration file. In addition to performing a component scan on the controller package, it uses Spring <code>Interceptors</code> to provide internationalized resource messages to the UI, and resolves views using a Spring <code>ViewResolver</code>.</td>
+		<td headers="links"><a href="https://github.com/craigmiller160/SchoolWebPortal/blob/master/src/main/webapp/WEB-INF/web.xml">Source</a></td>
+	</tr><tr>
+		<td headers="class">Spring Data/ORM Configuration</td>
+		<td headers="description">The data-context.xml configuration file for Spring-managed database access. Spring's ORM tools are used to configure the data source and the <code>Hibernate</code> framework and its <code>SessionFactory</code>. Spring transaction management using <code>JTA</code> annotations is also configured here.</td>
+		<td headers="links"><a href="https://github.com/craigmiller160/SchoolWebPortal/blob/master/src/main/resources/data-context.xml">Source</a></td>
+	</tr>
+</table>
+
+<h3>Entities Mapped Using JPA Annotations</h3>
+
+<p>Entities in this application being persisted in the database are mapped using <code>JPA</code> annotations, which the <code>Hiberante</code> framework uses to connect the classes to their respective database tables.</p>
+
+<h4>Examples in Code:</h4>
+<table style="width:100%">
+	<tr>
+		<th id="class">File</th>
+		<th id="description">Description</th>
+		<th id="links">Links</th>
+	</tr>
+	<tr>
+		<td headers="class">Student</td>
+		<td headers="description">The student entity defines a registered student at the school.</td>
+		<td headers="links"><a href="https://github.com/craigmiller160/SchoolWebPortal/blob/master/src/main/java/io/craigmiller160/school/entity/Student.java">Source</a><br><a href="./schoolportal/io/craigmiller160/school/entity/Student.html">JavaDoc</a></td>
+	</tr>
+	<tr>
+		<td headers="class">Course</td>
+		<td headers="description">The course entity defines a registered course at the school.</td>
+		<td headers="links"><a href="https://github.com/craigmiller160/SchoolWebPortal/blob/master/src/main/java/io/craigmiller160/school/entity/Course.java">Source</a><br><a href="./schoolportal/io/craigmiller160/school/entity/Course.html">JavaDoc</a></td>
+	</tr>
+</table>
+
+<h3>Repository DAO API</h3>
+
+<p>A unified persitence API is used for this application, providing a highly flexible set of generic interfaces that can be used to persist any entity. Specific implementations of these interfaces for specific entities are shown below, and use the <code>Hiberante</code> API to persist entities in the database.</p>
+
+<h4>Examples in Code:</h4>
+<table style="width:100%">
+	<tr>
+		<th id="class">File</th>
+		<th id="description">Description</th>
+		<th id="links">Links</th>
+	</tr>
+	<tr>
+		<td headers="class">HibernateStudentDao</td>
+		<td headers="description">The DAO bean for persisting Student entities in the database. It is managed by the Spring IOC container, and is mapped with Spring annotations to be injected with necessary dependencies.</td>
+		<td headers="links"><a href="https://github.com/craigmiller160/SchoolWebPortal/blob/master/src/main/java/io/craigmiller160/school/repo/HibernateStudentDao.java">Source</a><br><a href="./schoolportal/io/craigmiller160/school/repo/HibernateStudentDao.html">JavaDoc</a></td>
+	</tr>
+	<tr>
+		<td headers="class">HibernateCourseDao</td>
+		<td headers="description">The DAO bean for persisting Course entities in the database. It is managed by the Spring IOC container, and is mapped with Spring annotations to be injected with necessary dependencies.</td>
+		<td headers="links"><a href="https://github.com/craigmiller160/SchoolWebPortal/blob/master/src/main/java/io/craigmiller160/school/repo/HibernateCourseDao.java">Source</a><br><a href="./schoolportal/io/craigmiller160/school/repo/HibernateCourseDao.html">JavaDoc</a></td>
+	</tr>
+</table>
+
+<h3>Service Layer API</h3>
+
+<p>The service layer is also extremely flexbile, built on generic interfaces that are designed to handle a wide range of entities and their DAOs. These generic methods accept type arguments to determine which entity is being persisted (and which DAO is needed for the operation). If additional entities/DAOs are added in the future, the only changes that need to be made are to the implementation, no API methods will need to be added/changed.</p>
+
+<h4>Examples in Code:</h4>
+<table style="width:100%">
+	<tr>
+		<th id="class">File</th>
+		<th id="description">Description</th>
+		<th id="links">Links</th>
+	</tr>
+	<tr>
+		<td headers="class">SchoolDataService</td>
+		<td headers="description">The service layer of the application. Every generic method parses the type arguments provided to determine which DAO(s) to use to perform the operation. If additional DAOs are added to the application, this implementation need only add them in, the API won't need to change.</td>
+		<td headers="links"><a href="https://github.com/craigmiller160/SchoolWebPortal/blob/master/src/main/java/io/craigmiller160/school/service/SchoolDataService.java">Source</a><br><a href="./schoolportal/io/craigmiller160/school/service/SchoolDataService.html">JavaDoc</a></td>
+	</tr>
+</table>
+
+<h3>Spring Controller Beans</h3>
+
+<p>Built on the <code>Spring MVC</code> framework, the controller beans are the centerpiece of the application flow. Using Spring's annotations, these beans are mapped to URL commands. Controller operations range from simple acts of returning specific pages to more complex interactions with calling service layer methods. An example of controller-service layer interaction is shown below.</p>
+
+<h4>Examples in Code:</h4>
+<table style="width:100%">
+	<tr>
+		<th id="class">File</th>
+		<th id="description">Description</th>
+		<th id="links">Links</th>
+	</tr>
+	<tr>
+		<td headers="class">AdminCourseController</td>
+		<td headers="description">The controller that handles CRUD operations generated by the client that need to be sent to the database. Specifically, it handles administrator changes to the course table in that database. The service class is injected by the Spring container, and the controller uses it to interact with the database and return values to the view via the model.</td>
+		<td headers="links"><a href="https://github.com/craigmiller160/SchoolWebPortal/blob/master/src/main/java/io/craigmiller160/school/controller/AdminCourseController.java">Source</a><br><a href="./schoolportal/io/craigmiller160/school/controller/AdminCourseController.html">JavaDoc</a></td>
+	</tr>
+</table>
+
+<h3>JSP Pages for Views</h3>
+
+<p>Java Server Pages are used for the view technology for this application. The <code>JSTL</code> and <code>Spring</code> tag libraries are used in addition to standard <code>HTML</code> tags to build the UI, coupled with <code>CSS</code> stylesheets. The look-and-feel is a combination of homemade UI components and styles and <code>Bootstrap</code> elements. The pages dynamically update based on data passed from the application, and all UI text is internationalized.</p>
+
+<h4>Examples in Code:</h4>
+<table style="width:100%">
+	<tr>
+		<th id="class">File</th>
+		<th id="description">Description</th>
+		<th id="links">Links</th>
+	</tr>
+	<tr>
+		<td headers="class">Admin Main Menu</td>
+		<td headers="description">One of the simpler pages in the UI. It provides a basic menu for administrators to choose to access either the student or course management tools.</td>
+		<td headers="links"><a href="https://github.com/craigmiller160/SchoolWebPortal/blob/master/src/main/webapp/WEB-INF/jsp/admin-main.jsp">Source</a></td>
+	</tr>
+	<tr>
+		<td headers="class">Admin Courses Page</td>
+		<td headers="description">The master list of registered courses in the admin portal. The list is generated dynamically and in a paginated fashion (10 records per page) from the database. Options to perform CRUD operations involving courses are provided.</td>
+		<td headers="links"><a href="https://github.com/craigmiller160/SchoolWebPortal/blob/master/src/main/webapp/WEB-INF/jsp/courses.jsp">Source</a></td>
+	</tr>
+	<tr>
+		<td headers="class">Admin Course Info Form Page</td>
+		<td headers="description">A page with a form for creating/editing a course. When editing an existing course, the fields are all filled in with data on that course, otherwise they are blank. Upon saving the changes, the entity is persisted in the database.</td>
+		<td headers="links"><a href="https://github.com/craigmiller160/SchoolWebPortal/blob/master/src/main/webapp/WEB-INF/jsp/course-form.jsp">Source</a></td>
+	</tr>
+</table>
+
+<h3>Built Using Maven</h3>
+
+<p>Maven is the build tool used to manage dependencies and assemble this application.</p>
+
+<h4>Examples in Code:</h4>
+<table style="width:100%">
+	<tr>
+		<th id="class">File</th>
+		<th id="description">Description</th>
+		<th id="links">Links</th>
+	</tr>
+	<tr>
+		<td headers="class">pom.xml</td>
+		<td headers="description">The pom.xml file for the Maven configuration.</td>
+		<td headers="links"><a href="https://github.com/craigmiller160/SchoolWebPortal/blob/master/pom.xml">Source</a></td>
+	</tr>
+</table>
+
+<h3>Contact</h3>
+
+<p>Want to contact Craig Miller? Feel free to email at <u>craigmiller160@gmail.com</u>.</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
