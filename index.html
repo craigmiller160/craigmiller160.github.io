@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="description" content="CraigMiller160.GitHub.io : page containing all of Craig Miller's projects" />
+    
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Bootstrap Stylesheet -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!-- Bootstrap JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    
+    <title>CraigMiller160</title>
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-static-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-options" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                
+                <a id="nav-brand-logo" target-page="welcome" class="navbar-brand page-changer" href="#">
+                    <img alt="GitHubLogo" src="images/github-icon.png" />
+                </a>
+                <a id="nav-brand-title" target-page="welcome" class="navbar-brand page-changer" href="#">CraigMiller160</a>
+            </div>
+            
+            <div class="collapse navbar-collapse" id="navbar-options">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a class="page-changer" id="nav-btn-bio" target-page="bio" href="#">Bio</a>
+                    </li>
+                    <li>
+                        <a class="page-changer" id="nav-btn-resume" target-page="resume" href="#">Resume</a>
+                    </li>
+                    <li>
+                        <a class="page-changer" id="nav-btn-projects" target-page="projects" href="#">Projects</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div id="content">
+            <!-- JQuery fills the contents -->
+        </div>
+    </div>
+</body>
+<script>
+    $(document).ready(function(){
+        var loadPage = function(event){
+            if(event.type === "click"){
+                var targetPage = $("#" + event.target.id).attr("target-page");
+                $("#content").load(targetPage + ".html");
+            }
+        }
+        $(".page-changer").click(loadPage);
+        
+        $("#content").load("welcome.html");
+    });
+</script>
+</html>
