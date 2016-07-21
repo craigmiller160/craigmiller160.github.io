@@ -24,22 +24,22 @@
                     <span class="icon-bar"></span>
                 </button>
                 
-                <a id="nav-brand-logo" target-page="welcome" class="navbar-brand page-changer" href="#">
-                    <img alt="GitHubLogo" src="images/github-icon.png" />
+                <a id="nav-brand-logo" page="welcome" class="navbar-brand content-change1" href="#">
+                    <img alt="GitHubLogo" src="content/images/github-icon.png" />
                 </a>
-                <a id="nav-brand-title" target-page="welcome" class="navbar-brand page-changer" href="#">CraigMiller160</a>
+                <a id="nav-brand-title" page="welcome" class="navbar-brand content-change1" href="#">CraigMiller160</a>
             </div>
             
             <div class="collapse navbar-collapse" id="navbar-options">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a class="page-changer" id="nav-btn-bio" target-page="bio" href="#">Bio</a>
+                        <a class="content-change1" id="nav-btn-bio" page="bio" href="#">Bio</a>
                     </li>
                     <li>
-                        <a class="page-changer" id="nav-btn-resume" target-page="resume" href="#">Resume</a>
+                        <a class="content-change1" id="nav-btn-resume" page="resume" href="#">Resume</a>
                     </li>
                     <li>
-                        <a class="page-changer" id="nav-btn-projects" target-page="projects" href="#">Projects</a>
+                        <a class="content-change1" id="nav-btn-projects" page="projects" href="#">Projects</a>
                     </li>
                 </ul>
             </div>
@@ -53,15 +53,24 @@
 </body>
 <script>
     $(document).ready(function(){
-        var loadPage = function(event){
+        var contentChange = function(event){
             if(event.type === "click"){
-                var targetPage = $("#" + event.target.id).attr("target-page");
-                $("#content").load(targetPage + ".html");
+                var id = event.target.id;
+                var elem = $("#" + id);
+                var parent = elem.parent();
+                var grandParent = parent.parent();
+                
+                var targetPage = elem.attr("page");
+                $("#content").load("content/" + targetPage + ".html");
+                if(elem.prop("nodeName") === "A" && parent.prop("nodeName") === "LI" && grandParent.prop("nodeName") == "UL"){
+                    grandParent.children("li.active").removeClass("active");
+                    parent.attr("class", parent.attr("class") + " active");
+                }
             }
         }
-        $(".page-changer").click(loadPage);
+        $("[class^='content-change']").click(contentChange);
         
-        $("#content").load("welcome.html");
+        $("#content").load("content/welcome.html");
     });
 </script>
 </html>
