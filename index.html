@@ -11,7 +11,7 @@
     <!-- Bootstrap JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     
-    <title>CraigMiller160</title>
+    <title>Craig Miller</title>
 </head>
 <body>
     <nav class="navbar navbar-default navbar-static-top">
@@ -24,23 +24,27 @@
                     <span class="icon-bar"></span>
                 </button>
                 
-                <a id="nav-brand-logo" group="main" page="welcome" class="navbar-brand content-change" target="content-main" href="#">
+                <a page="welcome" class="navbar-brand content-change" target="content-main" href="#">
                     <img alt="GitHubLogo" src="content/images/github-icon.png" />
                 </a>
-                <a id="nav-brand-text" group="main" page="welcome" target="content-main" class="navbar-brand content-change" href="#">CraigMiller160</a>
+                <a page="welcome" class="navbar-brand content-change" target="content-main" href="#">Craig Miller</a>
             </div>
             
             <div class="collapse navbar-collapse" id="navbar-options">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a id="nav-bio" class="content-change" group="main" page="bio" target="content-main" href="#">Bio</a>
+                        <a class="content-change" page="bio" target="content-main" href="#">Bio</a>
                     </li>
                     <li>
-                        <a id="nav-resume" class="content-change" group="main" page="resume" target="content-main" href="#">Resume</a>
+                        <a class="content-change" page="skills" target="content-main" href="#">Skills</a>
                     </li>
                     <li>
-                        <a id="nav-projects" class="content-change" group="main" page="projects" target="content-main" href="#">Projects</a>
+                        <a class="content-change" page="projects" target="content-main" href="#">Projects</a>
                     </li>
+                    <li>
+                        <a class="content-change" page="resume" target="content-main" href="#">Resume</a>
+                    </li>
+                    
                 </ul>
             </div>
         </div>
@@ -53,20 +57,19 @@
 </body>
 <script>
     $(document).ready(function(){
-        var contentChange = function(event){
+        function contentChange(event){
             if(event.type === "click"){
-                var source = $("#" + event.target.id);
-                var group = source.attr("group");
-                var target = source.attr("target");
-                var page = source.attr("page");
+                var page = $(this).attr("page");
+                var target = $(this).attr("target");
                 
-                $("[group='main']").parent("li").removeClass("active");
+                $("[target='" + target + "']").parent("li").removeClass("active");
                 
-                if(source.parent().prop("nodeName") === "LI"){
-                    source.parent().addClass("active");
+                if($(this).parent().prop("nodeName") === "LI"){
+                    $(this).parent().addClass("active");
                 }
                 $("#" + target).load("content/" + page + ".html");
             }
+            event.preventDefault();
         }
         $(".content-change").click(contentChange);
         
