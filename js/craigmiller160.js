@@ -1,22 +1,27 @@
 /* CraigMiller160 GitHub Page JavaScript */
-function contentChange(event){
-    if(event.type === "click"){
-        var page = $(this).attr("page");
-        var target = $(this).attr("target");
-        
-        $("[target='" + target + "']").parent("li").removeClass("active");
-        
+var contentChanger = {
+	handleChangeEvent: function (event){
+	    if(event.type === "click"){
+	        var page = $(this).attr("page");
+	        var target = $(this).attr("target");
+
+	        $("[target='" + target + "']").parent("li").removeClass("active");
+	        
         if($(this).parent().prop("nodeName") === "LI"){
             $(this).parent().addClass("active");
         }
-        // $("#" + target).fadeOut(0).fadeIn("slow").load("content/" + page + ".html");
+
         $("#" + target).fadeOut(200, function(){
         	$("#" + target).load("content/" + page + ".html", function(){
         		$("#" + target).fadeIn(200);
         	});
         });
-    }
-    event.preventDefault();
+	    }
+	    event.preventDefault();
+	},
+	change: function(page, target){
+		//TODO learn more about scopes/closures/objects, and then try to link this function to the above one
+	}
 };
 
 function setAge(){
@@ -29,7 +34,7 @@ function setAge(){
 };
 
 function initPage(){
-	$(".content-change").click(contentChange);
+	$(".content-change").click(contentChanger.handleChangeEvent);
     setAge();
 };
 
