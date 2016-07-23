@@ -9,7 +9,12 @@ function contentChange(event){
         if($(this).parent().prop("nodeName") === "LI"){
             $(this).parent().addClass("active");
         }
-        $("#" + target).fadeOut(0).fadeIn("slow").load("content/" + page + ".html");
+        // $("#" + target).fadeOut(0).fadeIn("slow").load("content/" + page + ".html");
+        $("#" + target).fadeOut(200, function(){
+        	$("#" + target).load("content/" + page + ".html", function(){
+        		$("#" + target).fadeIn(200);
+        	});
+        });
     }
     event.preventDefault();
 };
