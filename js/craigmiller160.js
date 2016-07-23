@@ -9,7 +9,7 @@ function contentChange(event){
         if($(this).parent().prop("nodeName") === "LI"){
             $(this).parent().addClass("active");
         }
-        $("#" + target).load("content/" + page + ".html");
+        $("#" + target).fadeOut(0).fadeIn("slow").load("content/" + page + ".html");
     }
     event.preventDefault();
 };
