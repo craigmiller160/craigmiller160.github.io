@@ -11,6 +11,10 @@
     <!-- Bootstrap JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     
+    <!-- My custom CSS styles -->
+    <link rel="stylesheet" href="css/craigmiller160.css" />
+    <!-- My custom JavaScript -->
+    <script src="./js/craigmiller160.js"></script>
     <title>Craig Miller</title>
 </head>
 <body>
@@ -57,22 +61,6 @@
 </body>
 <script>
     $(document).ready(function(){
-        function contentChange(event){
-            if(event.type === "click"){
-                var page = $(this).attr("page");
-                var target = $(this).attr("target");
-                
-                $("[target='" + target + "']").parent("li").removeClass("active");
-                
-                if($(this).parent().prop("nodeName") === "LI"){
-                    $(this).parent().addClass("active");
-                }
-                $("#" + target).load("content/" + page + ".html");
-            }
-            event.preventDefault();
-        }
-        $(".content-change").click(contentChange);
-        
         $("#content-main").load("content/welcome.html");
     });
 </script>

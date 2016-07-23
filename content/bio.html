@@ -1,34 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style>
-    .page-title {
-        text-align: center;
-        font-weight: bold;
-        margin-bottom: 20px
-    }
-    .section-header {
-        margin-top: 30px;
-        font-weight: bold;
-    }
-    .item {
-        margin: 0px;
-    }
-    .item-title {
-        font-weight: bold;
-    }
-</style>
 </head>
 <body>
 <div id="content-bio">
-    <div class="row">
-        <div class="col-md-12">
-            <h3 class="page-title">Biography</h3>
-        </div>
+    <div class="page-header">
+        <h1 class="page-title">Biography</h1>
     </div>
     <div class="row">
         <div class="col-md-12">
-            <h4 class="section-header">Background</h4>
+            <h3 class="section-header">Background</h3>
             
             <p>Craig Miller is a <span class="craig-age"></span> year old software developer living and working in Tampa, Florida. He brings a detail-focused, object-oriented approach to development, and has experience with multiple languages. His training came from a combination of online courses, self teaching, and a passion for developing software on his own.</p>
             
@@ -39,7 +20,7 @@
     </div>
     <div class="row">
         <div class="col-md-12">
-            <h4 class="section-header">Academics</h4>
+            <h3 class="section-header">Academics</h3>
             
             <p>While in school, Craig pursued his passion in other fields, all the while engaging with technology as a hobby.</p>
     
@@ -54,12 +35,7 @@
 </body>
 <script>
     $(document).ready(function(){
-        $(".craig-age").html(function(){
-            var birthdate = new Date(1988, 9, 26);
-            var today = Date.now();
-            var ageDate = new Date(today - birthdate);
-            return Math.abs(ageDate.getUTCFullYear() - 1970);
-        });
+        setAge();
     });
 </script>
 </html>
