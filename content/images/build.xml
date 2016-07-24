@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="crl-ftp-processors" default="jar">
+	<property name="project.version" value="1.1" />
+	<property name="dir.home" value="/Users/craigmiller" />
+	<property name="dir.dev" value="${dir.home}/PilotFish/DevRoot/CRL-93" />
+	<property name="dir.dev.src" value="${dir.dev}/src" />
+	<property name="dir.dev.rman" value="${dir.dev}/rman" />
+	<property name="dir.dev.deprecated" value="${dir.dev}/deprecated-src" />
+	<property name="dir.dev.classes" value="${dir.dev}/classes" />
+	<property name="dir.dev.lib" value="${dir.dev}/resources/build/lib" />
+	<property name="dir.build" value="${dir.home}/${ant.project.name}" />
+	<property name="dir.build.src" value="${dir.build}/sources" />
+	<property name="dir.output" value="${dir.home}/Public/custom" />
+	<property name="pkg.path" value="com/pilotfish/eip/modules/file/ftp" />
+	<property name="file.processorUtil" value="CrlFtpProcessorUtil" />
+	<property name="file.listingProcessor" value="JschListingProcessor" />
+	<property name="file.singleFileProcessor" value="JschSingleFileProcessor" />
+	<property name="jar.fileName" value="${ant.project.name}-${project.version}.jar" />
+	<path id="pfClasspath">
+		<pathelement path="${dir.dev.classes}" />
+		<fileset dir="${dir.dev.lib}">
+			<include name="**/*.jar" />
+		</fileset>
+	</path>
+	<target name="clean">
+		<delete dir="${dir.dev.classes}" />
+		<delete dir="${dir.build}" />
+	</target>
+	<target name="prepare" depends="clean">
+		<mkdir dir="${dir.dev.classes}" />
+		<mkdir dir="${dir.build}/${pkg.path}" />
+		<mkdir dir="${dir.build.src}/${pkg.path}" />
+	</target>
+	<target name="compile" depends="prepare">
+		<javac source="1.7" target="1.7" classpathref="pfClasspath" destdir="${dir.dev.classes}">
+			<src path="${dir.dev.src}" />
+			<src path="${dir.dev.rman}" />
+			<src path="${dir.dev.deprecated}" />
+		</javac>
+	</target>
+	<target name="copy" depends="compile">
+		<copy todir="${dir.build}/${pkg.path}">
+			<fileset dir="${dir.dev.classes}/${pkg.path}">
+				<include name="${file.processorUtil}*.class" />
+				<include name="${file.listingProcessor}*.class" />
+				<include name="${file.singleFileProcessor}*.class" />
+			</fileset>
+		</copy>
+		<copy todir="${dir.build.src}/${pkg.path}">
+			<fileset dir="${dir.dev.src}/${pkg.path}">
+				<include name="${file.processorUtil}.java" />
+				<include name="${file.listingProcessor}.java" />
+				<include name="${file.singleFileProcessor}.java" />
+			</fileset>
+		</copy>
+	</target>
+	<target name="jar" depends="copy">
+		<jar destfile="${dir.build}/${jar.fileName}" basedir="${dir.build}">
+			<manifest>
+				<attribute name="Built-By" value="PilotFish Technology" />
+			</manifest>
+		</jar>
+		<mkdir dir="${dir.output}/${ant.project.name}" />
+		<delete file="${dir.output}/${ant.project.name}/${jar.fileName}" quiet="true" />
+		<copy todir="${dir.output}/${ant.project.name}" file="${dir.build}/${jar.fileName}" />
+		<antcall target="clean" />
+	</target>
+</project>
