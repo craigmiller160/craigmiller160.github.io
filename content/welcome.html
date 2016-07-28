@@ -8,12 +8,11 @@
         <h1 class="page-title">Software Developer</h1>
     </div>
     <div class="row">
-    	<div id="images" class="col-md-12">
-    		<!-- <img class="slideshow img-code" src="content/images/java.png" alt="Java" /> -->
-    		<!-- <img class="slideshow img-code" src="content/images/android-activity.png" alt="Android" /> -->
-    		<!-- <img class="slideshow img-code" src="content/images/sql.png" alt="SQL" /> -->
+    	<div class="col-md-12">
+    		<div id="images" class="img-container" />
     	</div>
     </div>
+    
 </div>
 </body>
 <script type="text/javascript">
@@ -27,7 +26,6 @@ $(document).ready(function(){
 	function addImage(src, index){
 		var img = $("<img/>");
 		img.addClass("slideshow");
-		img.addClass("img-code");
 
 		img.attr("src", src);
 		img.attr("alt", src);
@@ -51,12 +49,12 @@ $(document).ready(function(){
 	}
 	preload(imgArray);
 
-	$(".slideshow").hide();
 	$(".slideshow").eq(0).show();
 
 	function cycle(oldIndex, currentIndex) {
-		$(".slideshow").eq(oldIndex).fadeOut(300, function(){
-			$(".slideshow").eq(currentIndex).fadeIn(300);
+
+		$(".slideshow").eq(oldIndex).fadeOut(200, function(){
+			$(".slideshow").eq(currentIndex).fadeIn(200);
 		});
 	}
 

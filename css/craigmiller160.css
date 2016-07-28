@@ -28,16 +28,11 @@
 }
 
 .slideshow {
-	/*display: none;*/
-}
-
-.slideshow.active {
-	/*display: inline-block;*/
-	/*z-index: 99;*/
-}
-
-.img-code {
 	max-width: 100%;
+}
+
+.img-container {
+	text-align: center;
 }
 
 /*.vertical-align > [class^="col-"],
