@@ -12,11 +12,10 @@
     		<div id="images" class="img-container" />
     	</div>
     </div>
-    
 </div>
 </body>
 <script type="text/javascript">
-$(document).ready(function(){
+function old(){
 	var imgArray = [
 		"content/images/java.png",
 		"content/images/android-activity.png",
@@ -68,7 +67,11 @@ $(document).ready(function(){
 		}
 
 		cycle(oldIndex, currentIndex);
-	}, 2000);
+	}, 3000);
+}
+
+$(document).ready(function(){
+	old();
 });
 </script>
 </html>
