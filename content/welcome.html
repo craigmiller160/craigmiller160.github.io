@@ -70,11 +70,53 @@
 // 	}, 3000);
 // }
 
+function addImage(src, alt, index){
+	var img = $("<img/>");
+	img.addClass("slideshow");
+
+	img.attr("src", src);
+	img.attr("alt", alt);
+	$("#images").append(img);
+	if(index > 0){
+		$(img).hide();
+	}
+}
+
+function preload(imgArray){
+	$.each(imgArray, function(index, value){
+		var image = new Image();
+		image.onload = function(){
+			addImage(image.src, value.alt, index);
+		};
+		image.onerror = function(){
+			addImage("", value.alt, index);
+		};
+		image.src = value.src;
+	});
+}
+
+function cycle(oldIndex, currentIndex) {
+	$(".slideshow").eq(oldIndex).fadeOut(200, function(){
+		$(".slideshow").eq(currentIndex).fadeIn(200);
+	});
+}
+
 $(document).ready(function(){
-	$.getJSON("content/temp.json", function (data){
-		console.log("foo1");
-		console.log(data);
-		console.log("foo");
+	var currentIndex = 0;
+
+	$.getJSON("content/welcome-slideshow.json", function (data){
+		console.log(data.images[0]);
+		preload(data.images);
+
+		var autoSlide = setInterval(function(){
+			var oldIndex = currentIndex;
+			currentIndex += 1;
+			if (currentIndex > 3 - 1){
+				currentIndex = 0;
+			}
+
+			cycle(oldIndex, currentIndex);
+		}, 3000);
 	});
 });
 </script>
