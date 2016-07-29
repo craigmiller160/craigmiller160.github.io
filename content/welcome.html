@@ -15,63 +15,67 @@
 </div>
 </body>
 <script type="text/javascript">
-function old(){
-	var imgArray = [
-		"content/images/java.png",
-		"content/images/android-activity.png",
-		"content/images/sql.png"
-	];
+// function old(){
+// 	var imgArray = [
+// 		"content/images/java.png",
+// 		"content/images/android-activity.png",
+// 		"content/images/sql.png"
+// 	];
 
-	function addImage(src, index){
-		var img = $("<img/>");
-		img.addClass("slideshow");
+// 	function addImage(src, index){
+// 		var img = $("<img/>");
+// 		img.addClass("slideshow");
 
-		img.attr("src", src);
-		img.attr("alt", src);
-		$("#images").append(img);
-		if(index > 0){
-			$(img).hide();
-		}
-	}
+// 		img.attr("src", src);
+// 		img.attr("alt", src);
+// 		$("#images").append(img);
+// 		if(index > 0){
+// 			$(img).hide();
+// 		}
+// 	}
 
-	function preload(imageArray){
-		$(imageArray).each(function(index, value){
-			var image = new Image();
-			image.onload = function(){
-				addImage(image.src, index);
-			};
-			image.onerror = function(){
-				alert("error");
-			};
-			image.src = value;
-		});
-	}
-	preload(imgArray);
+// 	function preload(imageArray){
+// 		$(imageArray).each(function(index, value){
+// 			var image = new Image();
+// 			image.onload = function(){
+// 				addImage(image.src, index);
+// 			};
+// 			image.onerror = function(){
+// 				alert("error");
+// 			};
+// 			image.src = value;
+// 		});
+// 	}
+// 	preload(imgArray);
 
-	$(".slideshow").eq(0).show();
+// 	$(".slideshow").eq(0).show();
 
-	function cycle(oldIndex, currentIndex) {
+// 	function cycle(oldIndex, currentIndex) {
 
-		$(".slideshow").eq(oldIndex).fadeOut(200, function(){
-			$(".slideshow").eq(currentIndex).fadeIn(200);
-		});
-	}
+// 		$(".slideshow").eq(oldIndex).fadeOut(200, function(){
+// 			$(".slideshow").eq(currentIndex).fadeIn(200);
+// 		});
+// 	}
 
-	var currentIndex = 0;
+// 	var currentIndex = 0;
 
-	var autoSlide = setInterval(function(){
-		var oldIndex = currentIndex;
-		currentIndex += 1;
-		if (currentIndex > 3 - 1){
-			currentIndex = 0;
-		}
+// 	var autoSlide = setInterval(function(){
+// 		var oldIndex = currentIndex;
+// 		currentIndex += 1;
+// 		if (currentIndex > 3 - 1){
+// 			currentIndex = 0;
+// 		}
 
-		cycle(oldIndex, currentIndex);
-	}, 3000);
-}
+// 		cycle(oldIndex, currentIndex);
+// 	}, 3000);
+// }
 
 $(document).ready(function(){
-	old();
+	$.getJSON("content/temp.json", function (data){
+		console.log("foo1");
+		console.log(data);
+		console.log("foo");
+	});
 });
 </script>
 </html>
