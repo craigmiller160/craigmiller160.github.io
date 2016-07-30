@@ -89,6 +89,7 @@ function preload(imgArray){
 			addImage(image.src, value.alt, index);
 		};
 		image.onerror = function(){
+			console.log("Error loading image: " + value.src);
 			addImage("", value.alt, index);
 		};
 		image.src = value.src;
