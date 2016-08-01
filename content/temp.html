@@ -1,0 +1,37 @@
+<script>
+var slideshow = {
+	currentIndexes = [],
+	addImage: function (src, alt, index){
+		var img = $("<img/>");
+		img.addClass("slideshow");
+
+		img.attr("src", src);
+		img.attr("alt", alt);
+		$("#images").append(img);
+		if(index > 0){
+			$(img).hide();
+		}
+	},
+	preload: function (imgArray){
+		$.each(imgArray, function(index, value){
+			var image = new Image();
+			image.onload = function(){
+				addImage(image.src, value.alt, index);
+			};
+			image.onerror = function(){
+				console.log("Error loading image: " + value.src);
+				addImage("", value.alt, index);
+			};
+			image.src = value.src;
+		});
+	},
+	cycle: function (oldIndex, currentIndex){
+		$(".slideshow").eq(oldIndex).fadeOut(200, function(){ //TODO have a way to filter based on which named slideshow it is
+			$(".slideshow").eq(currentIndex).fadeIn(200); //TODO need to get the current index from the map
+		});
+	},
+	configure: function (name){
+
+	}
+};
+</script>
