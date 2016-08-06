@@ -17,10 +17,11 @@
 	font-weight: bold;
 }
 
-.vertical-align {
-	display: flex;
-  	flex-direction: row;
-  	align-items: center;
+#stats-container {
+	display: inline-block;
+	vertical-align: middle;
+	float: none;
+	color: blue;
 }
 
 .row-section {
@@ -33,4 +34,19 @@
 
 .cm160-img-container {
 	text-align: center;
+}
+
+
+
+
+
+
+.col-height {
+	display: table-cell;
+	float: none !important;
+}
+
+.row-same-height {
+	display: table;
+	width: 100%;
 }
