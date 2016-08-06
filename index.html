@@ -31,22 +31,22 @@
                 <a page="welcome" class="navbar-brand content-change" target="content-main" href="#">
                     <img alt="GitHubLogo" src="content/images/github-icon.png" />
                 </a>
-                <a page="welcome" class="navbar-brand content-change" target="content-main" href="#">Craig Miller</a>
+                <a page="welcome" class="navbar-brand cm160-change-content" target="content-main" href="#">Craig Miller</a>
             </div>
             
             <div class="collapse navbar-collapse" id="navbar-options">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a class="content-change" page="bio" target="content-main" href="#">Bio</a>
+                        <a class="cm160-change-content" page="bio" target="content-main" href="#">Bio</a>
                     </li>
                     <li>
-                        <a class="content-change" page="skills" target="content-main" href="#">Skills</a>
+                        <a class="cm160-change-content" page="skills" target="content-main" href="#">Skills</a>
                     </li>
                     <li>
-                        <a class="content-change" page="projects" target="content-main" href="#">Projects</a>
+                        <a class="cm160-change-content" page="projects" target="content-main" href="#">Projects</a>
                     </li>
                     <li>
-                        <a class="content-change" page="resume" target="content-main" href="#">Resume</a>
+                        <a class="cm160-change-content" page="resume" target="content-main" href="#">Resume</a>
                     </li>
                     
                 </ul>
@@ -54,14 +54,14 @@
         </div>
     </nav>
     <div class="container">
-        <div id="content-main">
+        <div id="content-main" class="cm160-content-container" defaultPage="welcome">
             <!-- JQuery fills the contents -->
         </div>
     </div>
 </body>
 <script>
     $(document).ready(function(){
-        contentChanger.change("welcome", "content-main");
+        cm160.contentChanger.init();
     });
 </script>
 </html>
