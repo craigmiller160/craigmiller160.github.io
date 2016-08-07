@@ -1,5 +1,8 @@
 {"images":[
 	{"src": "content/images/java.png", "alt": "Java" },
 	{"src": "content/images/android-activity.png", "alt": "Android" },
-	{"src": "content/images/sql.png", "alt": "SQL" }
+	{"src": "content/images/web-html.png", "alt": "HTML"},
+	{"src": "content/images/web-javascript.png", "alt": "JavaScript"},
+	{"src": "content/images/sql.png", "alt": "SQL" },
+	{"src": "content/images/other-xslt.png", "alt": "XSLT"}
 ]}
