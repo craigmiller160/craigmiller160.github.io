@@ -54,7 +54,6 @@ var cm160 = (function(){
 
 		function addImage(src, alt, index, name){
 			var imgDiv = $("<div/>");
-			imgDiv.addClass("cm160-slide-img");
 			
 			var img = $("<img/>");
 			img.attr("src", src);
@@ -88,8 +87,8 @@ var cm160 = (function(){
 
 		function cycle(oldIndex, currentIndex) {
 			//TODO make sure this works with alternate slideshows
-			$(".cm160-slide-img").eq(oldIndex).fadeOut(200, function(){
-				$(".cm160-slide-img").eq(currentIndex).fadeIn(200);
+			$(".cm160-slideshow > div").eq(oldIndex).fadeOut(200, function(){
+				$(".cm160-slideshow > div").eq(currentIndex).fadeIn(200);
 			});
 		}
 
