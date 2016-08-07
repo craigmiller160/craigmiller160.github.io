@@ -4,6 +4,7 @@ var cm160 = (function(){
 
 	var contentChanger = (function(){
 		var displayedContent = [];
+		var initContainers = [];
 
 		function handleChangeEvent (event){
 			if(event.type === "click"){
@@ -31,8 +32,11 @@ var cm160 = (function(){
 
 		function init(){
 			$(".cm160-content-container").each(function(){
-				var page = $(this).attr("defaultPage");
-				change(page, $(this).attr("id"));
+				if(initContainers[$(this).attr("id")] === undefined){
+					var page = $(this).attr("defaultPage");
+					change(page, $(this).attr("id"));
+					initContainers[$(this).attr("id")] = $(this);
+				}
 			});
 			$(".cm160-change-content").click(handleChangeEvent);
 		}
@@ -50,7 +54,7 @@ var cm160 = (function(){
 
 		function addImage(src, alt, index, name){
 			var img = $("<img/>");
-			img.addClass("cm160-slideshow"); //TODO make this class more unique
+			img.addClass("cm160-slideshow");
 
 			img.attr("src", src);
 			img.attr("alt", alt);

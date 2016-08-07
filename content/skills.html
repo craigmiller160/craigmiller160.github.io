@@ -3,7 +3,7 @@
 <head>
 </head>
 <body>
-	<div id="content-skills">
+	<div id="content-skills-page">
 		<div class="page-header title-block">
 	        <h1 class="page-title">Skills</h1>
 	    </div>
@@ -38,10 +38,15 @@
 		    		</ul>
 		    	</div>
 	    	</nav>
-	    	<div id="content-skills" defaultPage="java" class="col-md-9">
+	    	<div id="content-skills" defaultPage="java" class="col-md-9 cm160-content-container">
 		    	<!-- Individual skill content goes here -->
 	    	</div>
 	    </div>
 	</div>
 </body>
+<script>
+	$(document).ready(function(){
+		cm160.contentChanger.init();
+	});
+</script>
 </html>
