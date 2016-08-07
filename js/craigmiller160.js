@@ -53,14 +53,25 @@ var cm160 = (function(){
 		var autoSlideMap = [];
 
 		function addImage(src, alt, index, name){
+			var imgDiv = $("<div/>");
+			imgDiv.addClass("cm160-img-container");
+			
 			var img = $("<img/>");
-			img.addClass("cm160-slideshow");
-
 			img.attr("src", src);
 			img.attr("alt", alt);
-			$(imagesDivMap[name]).append(img);
+			img.addClass("cm160-img");
+			img.addClass("img-responsive");
+			imgDiv.append(img);
+
+			var caption = $("<h2/>");
+			// caption.text("Testing 12345 This is a test of size");
+			caption.text(alt);
+			caption.addClass("cm160-img-caption");
+			imgDiv.append(caption);
+			
+			$(imagesDivMap[name]).append(imgDiv);
 			if(index > 0){
-				$(img).hide();
+				$(imgDiv).hide();
 			}
 		}
 
@@ -79,15 +90,16 @@ var cm160 = (function(){
 		}
 
 		function cycle(oldIndex, currentIndex) {
-			$(".cm160-slideshow").eq(oldIndex).fadeOut(200, function(){
-				$(".cm160-slideshow").eq(currentIndex).fadeIn(200);
+			//TODO make sure this works with alternate slideshows
+			$(".cm160-img-container").eq(oldIndex).fadeOut(200, function(){
+				$(".cm160-img-container").eq(currentIndex).fadeIn(200);
 			});
 		}
 
 		function start(name){
 			currentIndexMap[name] = 0;
 
-			$(".cm160-img-container").each(function(){
+			$(".cm160-slideshow").each(function(){
 				if(name === this.id){
 					imagesDivMap[name] = this;
 					return false;
