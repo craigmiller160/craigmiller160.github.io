@@ -10,16 +10,14 @@ var cm160 = (function(){
 		        var page = $(this).attr("page");
 		        var target = $(this).attr("target");
 
-		        change(page, target, $(this)); //TODO how to handle this
+		        change(page, target);
 		    }
 		    event.preventDefault();
 		}
 
-		function change (page, target, node){
-			if(node !== null && node !== undefined && node.parent().prop("nodeName") === "LI"){
-				$("[target='" + target + "']").parent("li").removeClass("active");
-	            node.parent().addClass("active");
-	        }
+		function change (page, target){
+			$("[target='" + target + "']").parent("li").removeClass("active");
+			$(".cm160-change-content[page='" + page + "'").parent("li").addClass("active");
 
 	        if(displayedContent[target] !== page){
 				$("#" + target).fadeOut(200, function(){
@@ -48,6 +46,7 @@ var cm160 = (function(){
 	var slideshow = (function(){
 		var currentIndexMap = [];
 		var imagesDivMap = [];
+		var autoSlideMap = [];
 
 		function addImage(src, alt, index, name){
 			var img = $("<img/>");
@@ -99,6 +98,10 @@ var cm160 = (function(){
 			$.getJSON("content/slideshow-" + name + ".json", function (data){
 				preload(data.images, name);
 
+				if(autoSlideMap[name] !== undefined){
+					clearInterval(autoSlideMap[name]);
+				}
+
 				var autoSlide = setInterval(function(){
 					var oldIndex = currentIndexMap[name];
 					currentIndexMap[name] += 1;
@@ -107,7 +110,9 @@ var cm160 = (function(){
 					}
 
 					cycle(oldIndex, currentIndexMap[name]);
-				}, 3000);
+				}, 4000);
+
+				autoSlideMap[name] = autoSlide;
 			});
 		}
 

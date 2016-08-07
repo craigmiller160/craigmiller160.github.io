@@ -2,8 +2,18 @@
 .page-title {
 	text-align: center;
 	font-weight: bold;
+	margin: 0;
+}
+
+.title-block {
 	margin-bottom: 20px;
 }
+
+.page-subtitle {
+	text-align: center;
+	margin: 0;
+}
+
 .section-header {
 	margin: 0;
 	margin-top: 30px;
