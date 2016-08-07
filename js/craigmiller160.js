@@ -63,8 +63,7 @@ var cm160 = (function(){
 			img.addClass("img-responsive");
 			imgDiv.append(img);
 
-			var caption = $("<h2/>");
-			// caption.text("Testing 12345 This is a test of size");
+			var caption = $("<h3/>");
 			caption.text(alt);
 			caption.addClass("cm160-img-caption");
 			imgDiv.append(caption);
