@@ -4,75 +4,42 @@
 </head>
 <body>
 	<div id="content-skills">
-		<div class="page-header">
+		<div class="page-header title-block">
 	        <h1 class="page-title">Skills</h1>
 	    </div>
-	    <div class="row row-section vertical-align">
-	    	<div class="col-md-3 col-md-offset-3">
-	    		<h2 class="item item-title" >Language</h2>
-	    	</div>
-	    	<div class="col-md-3">
-	    		<h3 class="item">Java</h3>
-	    	</div>
-	    </div>
 	    <div class="row">
-		    <div class="col-md-3 col-md-offset-3">
-		    	<h4>Frameworks</h4>
-		    </div>
-		    <div class="col-md-3">
-			    <ul class="center-block">
-				    <li>Spring</li>
-				    <li>Hibernate</li>
-				    <li>Jersey</li>
-			    </ul>
-		    </div>
-	    </div>
-	    <div class="row">
-		    <div class="col-md-3 col-md-offset-3">
-		    	<h4>API</h4>
-		    </div>
-		    <div class="col-md-3">
-			    <ul class="center-block">
-				    <li>JDBC</li>
-				    <li>Servlet</li>
-			    </ul>
-		    </div>
-	    </div>
-	    <div class="row">
-		    <div class="col-md-3 col-md-offset-3">
-		    	<h4>Build Tools</h4>
-		    </div>
-		    <div class="col-md-3">
-			    <ul class="center-block">
-				    <li>Ant/Ivy</li>
-				    <li>Maven</li>
-			    </ul>
-		    </div>
-	    </div>
-	    <div class="row row-section vertical-align">
-	    	<div class="col-md-3 col-md-offset-3">
-	    		<h2 class="item item-title">Language</h2>
-	    	</div>
-	    	<div class="col-md-3">
-	    		<h3 class="item">JavaScript</h3>
-	    	</div>
-	    </div>
-	    <div class="row">
-		    <div class="col-md-3 col-md-offset-3">
-		    	<h4>Frameworks</h4>
-		    </div>
-		    <div class="col-md-3">
-			    <ul class="center-block">
-				    <li>JQuery</li>
-			    </ul>
-		    </div>
-	    </div>
-	    <div class="row row-section vertical-align">
-	    	<div class="col-md-3 col-md-offset-3">
-	    		<h2 class="item item-title">Language</h2>
-	    	</div>
-	    	<div class="col-md-3">
-	    		<h3 class="item">JavaScript</h3>
+	    	<nav class="navbar navbar-default col-md-3">
+	    		<button type="button" class="pull-left navbar-toggle collapsed" data-toggle="collapse" data-target="#skills-options" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="skills-options">
+                	<ul class="nav nav-pills nav-stacked">
+		    			<li>
+		    				<a class="cm160-change-content" page="java" target="content-skills" href="#">Java</a>
+		    			</li>
+		    			<li>
+		    				<a class="cm160-change-content" page="android" target="content-skills" href="#">Android</a>
+		    			</li>
+		    			<li>
+		    				<a class="cm160-change-content" page="sql" target="content-skills" href="#">SQL</a>
+		    			</li>
+		    			<li>
+							<a class="cm160-change-content" page="web" target="content-skills" href="#">Web Development</a>
+		    			</li>
+		    			<li>
+		    				<a class="cm160-change-content" page="other" target="content-skills" href="#">Other Languages</a>
+		    			</li>
+		    			<li>
+		    				<a class="cm160-change-content" page="tools" target="content-skills" href="#">Development Tools</a>
+		    			</li>
+		    		</ul>
+		    	</div>
+	    	</nav>
+	    	<div id="content-skills" defaultPage="java" class="col-md-9">
+		    	<!-- Individual skill content goes here -->
 	    	</div>
 	    </div>
 	</div>
