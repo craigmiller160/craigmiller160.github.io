@@ -41,15 +41,18 @@
 
 
 
+.cm160-slideshow {
+	text-align: center;
+}
 
-.cm160-img {
+.cm160-slideshow img {
 	max-width: 100%;
 	border: 0 none;
 	margin: 0;
 	padding: 0;
 }
 
-.cm160-img-caption {
+.cm160-slideshow h3 {
 	position: absolute;
 	padding: 0.5%;
 	width: 100%;
@@ -59,16 +62,10 @@
 	text-align: center;
 }
 
-.cm160-img-container {
+.cm160-slideshow > div {
 	position: relative;
 	width: 100%;
 }
-
-.cm160-slideshow {
-	text-align: center;
-}
-
-
 
 
 

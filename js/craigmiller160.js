@@ -54,18 +54,16 @@ var cm160 = (function(){
 
 		function addImage(src, alt, index, name){
 			var imgDiv = $("<div/>");
-			imgDiv.addClass("cm160-img-container");
+			imgDiv.addClass("cm160-slide-img");
 			
 			var img = $("<img/>");
 			img.attr("src", src);
 			img.attr("alt", alt);
-			img.addClass("cm160-img");
 			img.addClass("img-responsive");
 			imgDiv.append(img);
 
 			var caption = $("<h3/>");
 			caption.text(alt);
-			caption.addClass("cm160-img-caption");
 			imgDiv.append(caption);
 			
 			$(imagesDivMap[name]).append(imgDiv);
@@ -90,8 +88,8 @@ var cm160 = (function(){
 
 		function cycle(oldIndex, currentIndex) {
 			//TODO make sure this works with alternate slideshows
-			$(".cm160-img-container").eq(oldIndex).fadeOut(200, function(){
-				$(".cm160-img-container").eq(currentIndex).fadeIn(200);
+			$(".cm160-slide-img").eq(oldIndex).fadeOut(200, function(){
+				$(".cm160-slide-img").eq(currentIndex).fadeIn(200);
 			});
 		}
 
