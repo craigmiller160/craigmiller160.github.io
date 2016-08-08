@@ -18,7 +18,7 @@ var cm160 = (function(){
 
 		function change (page, target){
 			$("[target='" + target + "']").parent("li").removeClass("active");
-			$(".cm160-change-content[page='" + page + "'").parent("li").addClass("active");
+			$(".cm160-change-content a[page='" + page + "'").parent("li").addClass("active");
 
 	        if(displayedContent[target] !== page){
 				$("#" + target).fadeOut(200, function(){
@@ -38,7 +38,7 @@ var cm160 = (function(){
 					initContainers[$(this).attr("id")] = $(this);
 				}
 			});
-			$(".cm160-change-content").click(handleChangeEvent);
+			$(".cm160-change-content a").click(handleChangeEvent);
 		}
 
 		return {
