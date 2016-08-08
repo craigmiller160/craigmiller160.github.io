@@ -8,8 +8,9 @@ var cm160 = (function(){
 
 		function handleChangeEvent (event){
 			if(event.type === "click"){
-		        var page = $(this).attr("page");
-		        var target = $(this).attr("target");
+				var page = $(this).attr("page");
+				var changeContentDiv = $(this).closest(".cm160-change-content");
+		        var target = changeContentDiv.attr("target");
 
 		        change(page, target);
 		    }
@@ -17,7 +18,7 @@ var cm160 = (function(){
 		}
 
 		function change (page, target){
-			$("[target='" + target + "']").parent("li").removeClass("active");
+			$(".cm160-change-content[target='" + target + "'] li").removeClass("active");
 			$(".cm160-change-content a[page='" + page + "'").parent("li").addClass("active");
 
 	        if(displayedContent[target] !== page){
