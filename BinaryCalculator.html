@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Binary Parser</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-12 text-center">
+				<h1>Binary Calculator</h1>
+			</div>
+		</div>
+		<hr />
+		<div class="row">
+			<div class="col-12">
+				<p>Calculate the value of a given binary sequence.</p>
+			</div>
+		</div>
+		<div class="row align-items-end">
+			<div class="col-md-6">
+				<label for="binary">Binary Sequence</label>
+				<input id="binary" type="text" class="form-control" />
+			</div>
+			<div class="col-md-6">
+				<h4>Result: <span id="result">0</span></h4>
+			</div>
+		</div>
+	</div>
+	<script>
+		const binaryInput = document.querySelector('#binary');
+		const result = document.querySelector('#result');
+
+		const calculateBinary = binaryString => {
+			let multiple = 1;
+			let total = 0;
+			let count = 0;
+			for (let i = binaryString.length - 1; i >= 0; i--) {
+				const digit = binaryString[i];
+				if ('0' !== digit && '1' !== digit) {
+					alert('Error. Only 1s and 0s are allowed in a binary string');
+					binaryInput.value = binaryString.substring(0, binaryString.length - 1);
+					return;
+				}
+
+				const value = digit * multiple;
+				total += value;
+				multiple = multiple * 2;
+				count++;
+			}
+
+			result.textContent = total;
+		};
+
+		document.querySelector('#binary').addEventListener('input', event => {
+			calculateBinary(binaryInput.value);
+		});
+	</script>
+</body>
+</html>
